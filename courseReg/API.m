@@ -8,8 +8,8 @@
 
 #import "API.h"
 
-#define kAPIHost @"http://localhost"
-#define kAPIPath @"iReporter/"
+#define kAPIHost @"http://mingshengxu.com"
+#define kAPIPath @"promos/"
 
 @implementation API
 
