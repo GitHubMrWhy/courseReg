@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB22EF7917E98C4C0041D720 /* LoginScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB22EF7817E98C4C0041D720 /* LoginScreenViewController.m */; };
 		BBE4385417E96C0B008AF891 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE4385317E96C0B008AF891 /* UIKit.framework */; };
 		BBE4385617E96C0B008AF891 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE4385517E96C0B008AF891 /* Foundation.framework */; };
 		BBE4385817E96C0B008AF891 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE4385717E96C0B008AF891 /* CoreGraphics.framework */; };
@@ -49,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB22EF7717E98C4C0041D720 /* LoginScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginScreenViewController.h; sourceTree = "<group>"; };
+		BB22EF7817E98C4C0041D720 /* LoginScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginScreenViewController.m; sourceTree = "<group>"; };
 		BBE4385017E96C0B008AF891 /* courseReg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = courseReg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBE4385317E96C0B008AF891 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BBE4385517E96C0B008AF891 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -164,6 +167,8 @@
 			children = (
 				BBE438AD17E96CED008AF891 /* API.h */,
 				BBE438B017E96E99008AF891 /* MainStoryboard.storyboard */,
+				BB22EF7717E98C4C0041D720 /* LoginScreenViewController.h */,
+				BB22EF7817E98C4C0041D720 /* LoginScreenViewController.m */,
 				BBE438AE17E96CED008AF891 /* API.m */,
 				BBE4386217E96C0B008AF891 /* AppDelegate.h */,
 				BBE4386317E96C0B008AF891 /* AppDelegate.m */,
@@ -353,6 +358,7 @@
 				BBE438AB17E96C8E008AF891 /* AFXMLRequestOperation.m in Sources */,
 				BBE438AC17E96C8E008AF891 /* UIImageView+AFNetworking.m in Sources */,
 				BBE438AF17E96CED008AF891 /* API.m in Sources */,
+				BB22EF7917E98C4C0041D720 /* LoginScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +533,7 @@
 				BBE4388417E96C0B008AF891 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BBE4388517E96C0B008AF891 /* Build configuration list for PBXNativeTarget "courseRegTests" */ = {
 			isa = XCConfigurationList;
@@ -535,6 +542,7 @@
 				BBE4388717E96C0B008AF891 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
