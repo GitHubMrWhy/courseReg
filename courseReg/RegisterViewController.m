@@ -1,21 +1,24 @@
 //
-//  LoginScreenViewController.m
+//  RegisterViewController.m
 //  courseReg
 //
-//  Created by Mingsheng Xu on 9/18/13.
+//  Created by Mingsheng Xu on 9/19/13.
 //  Copyright (c) 2013 Mingsheng Xu. All rights reserved.
 //
 
-#import "LoginScreenViewController.h"
+#import "RegisterViewController.h"
 #import "API.h"
 
-@interface LoginScreenViewController ()
+@interface RegisterViewController ()
 
 @end
 
-@implementation LoginScreenViewController
+@implementation RegisterViewController
+
 @synthesize username_TextField;
 @synthesize password_TextField;
+@synthesize email_TextField;
+@synthesize gender_SegmentedControl;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -28,27 +31,31 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    //focus on the username field / show keyboard
-    [username_TextField becomeFirstResponder];
 	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
 {
-    
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 
 
-- (IBAction)login_Click:(UIButton *)sender {
-    NSString* command = @"login";
+- (IBAction)cancel_Button:(UIBarButtonItem *)sender {
+[self dismissViewControllerAnimated:YES completion:nil];
+   
+}
+
+- (IBAction)signup_Button:(UIButton *)sender {
+    NSLog(@"%d",gender_SegmentedControl.selectedSegmentIndex);
+    NSString* command = @"register";
     NSMutableDictionary* params =[NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                 command, @"command",
+                                  command, @"command",
                                   username_TextField.text, @"username",
                                   password_TextField.text, @"password",
+                                  email_TextField.text,@"email",
+                                  [NSNumber numberWithInteger:gender_SegmentedControl.selectedSegmentIndex],@"gender",
                                   nil];
     //make the call to the web API
     [[API sharedInstance] commandWithParams:params
@@ -61,8 +68,9 @@
                                        [[API sharedInstance] setUser: res];
                                        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
                                        //show message to the user
-                                    [self performSegueWithIdentifier:@"LoginToMain"sender:self];
                                        
+                                       
+                                       [self performSegueWithIdentifier:@"RegisterToMain"sender:self];
                                    } else {
                                        //error
                                        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"My Error" message: [json objectForKey:@"error"] delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
@@ -72,16 +80,6 @@
                                    }
                                    
                                }];
+
 }
--(void)dismissAlertView:(UIAlertView *)alertView{
-    [alertView dismissWithClickedButtonIndex:0 animated:YES];
-}
-
-- (IBAction)reg_Click:(UIButton *)sender {
-    
-     [self performSegueWithIdentifier:@"LoginToRegister"sender:self];
-   }
-
-
 @end
-

@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		BB22EF7917E98C4C0041D720 /* LoginScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB22EF7817E98C4C0041D720 /* LoginScreenViewController.m */; };
+		BB399F9717EE580C00217E89 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB399F9617EE580C00217E89 /* MeViewController.m */; };
+		BB399FA917EEA4BE00217E89 /* Connect.png in Resources */ = {isa = PBXBuildFile; fileRef = BB399FA417EEA4BE00217E89 /* Connect.png */; };
+		BB399FAA17EEA4BE00217E89 /* Globe.png in Resources */ = {isa = PBXBuildFile; fileRef = BB399FA517EEA4BE00217E89 /* Globe.png */; };
+		BB399FAB17EEA4BE00217E89 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = BB399FA617EEA4BE00217E89 /* Home.png */; };
+		BB399FAC17EEA4BE00217E89 /* List.png in Resources */ = {isa = PBXBuildFile; fileRef = BB399FA717EEA4BE00217E89 /* List.png */; };
+		BB399FAD17EEA4BE00217E89 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = BB399FA817EEA4BE00217E89 /* Settings.png */; };
 		BBE4385417E96C0B008AF891 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE4385317E96C0B008AF891 /* UIKit.framework */; };
 		BBE4385617E96C0B008AF891 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE4385517E96C0B008AF891 /* Foundation.framework */; };
 		BBE4385817E96C0B008AF891 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE4385717E96C0B008AF891 /* CoreGraphics.framework */; };
@@ -37,6 +43,7 @@
 		BBE438AC17E96C8E008AF891 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE438A317E96C8E008AF891 /* UIImageView+AFNetworking.m */; };
 		BBE438AF17E96CED008AF891 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE438AE17E96CED008AF891 /* API.m */; };
 		BBE438B117E96E99008AF891 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBE438B017E96E99008AF891 /* MainStoryboard.storyboard */; };
+		BBF4AE8D17EBB8340066BB61 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF4AE8C17EBB8340066BB61 /* RegisterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +59,13 @@
 /* Begin PBXFileReference section */
 		BB22EF7717E98C4C0041D720 /* LoginScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginScreenViewController.h; sourceTree = "<group>"; };
 		BB22EF7817E98C4C0041D720 /* LoginScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginScreenViewController.m; sourceTree = "<group>"; };
+		BB399F9517EE580C00217E89 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
+		BB399F9617EE580C00217E89 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
+		BB399FA417EEA4BE00217E89 /* Connect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Connect.png; sourceTree = "<group>"; };
+		BB399FA517EEA4BE00217E89 /* Globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe.png; sourceTree = "<group>"; };
+		BB399FA617EEA4BE00217E89 /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home.png; sourceTree = "<group>"; };
+		BB399FA717EEA4BE00217E89 /* List.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = List.png; sourceTree = "<group>"; };
+		BB399FA817EEA4BE00217E89 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
 		BBE4385017E96C0B008AF891 /* courseReg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = courseReg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBE4385317E96C0B008AF891 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BBE4385517E96C0B008AF891 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -97,6 +111,8 @@
 		BBE438AD17E96CED008AF891 /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		BBE438AE17E96CED008AF891 /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
 		BBE438B017E96E99008AF891 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		BBF4AE8B17EBB8340066BB61 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		BBF4AE8C17EBB8340066BB61 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,9 +143,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB399FA317EEA4BE00217E89 /* Icon */ = {
+			isa = PBXGroup;
+			children = (
+				BB399FA417EEA4BE00217E89 /* Connect.png */,
+				BB399FA517EEA4BE00217E89 /* Globe.png */,
+				BB399FA617EEA4BE00217E89 /* Home.png */,
+				BB399FA717EEA4BE00217E89 /* List.png */,
+				BB399FA817EEA4BE00217E89 /* Settings.png */,
+			);
+			path = Icon;
+			sourceTree = "<group>";
+		};
 		BBE4384717E96C0B008AF891 = {
 			isa = PBXGroup;
 			children = (
+				BB399FA317EEA4BE00217E89 /* Icon */,
 				BBE4389017E96C8E008AF891 /* AFNetworking */,
 				BBE4385917E96C0B008AF891 /* courseReg */,
 				BBE4387717E96C0B008AF891 /* courseRegTests */,
@@ -165,8 +194,12 @@
 		BBE4385917E96C0B008AF891 /* courseReg */ = {
 			isa = PBXGroup;
 			children = (
+				BB399F9517EE580C00217E89 /* MeViewController.h */,
+				BB399F9617EE580C00217E89 /* MeViewController.m */,
 				BBE438AD17E96CED008AF891 /* API.h */,
 				BBE438B017E96E99008AF891 /* MainStoryboard.storyboard */,
+				BBF4AE8B17EBB8340066BB61 /* RegisterViewController.h */,
+				BBF4AE8C17EBB8340066BB61 /* RegisterViewController.m */,
 				BB22EF7717E98C4C0041D720 /* LoginScreenViewController.h */,
 				BB22EF7817E98C4C0041D720 /* LoginScreenViewController.m */,
 				BBE438AE17E96CED008AF891 /* API.m */,
@@ -307,10 +340,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB399FAD17EEA4BE00217E89 /* Settings.png in Resources */,
+				BB399FAC17EEA4BE00217E89 /* List.png in Resources */,
 				BBE4385E17E96C0B008AF891 /* InfoPlist.strings in Resources */,
 				BBE4386617E96C0B008AF891 /* Default.png in Resources */,
 				BBE4386817E96C0B008AF891 /* Default@2x.png in Resources */,
 				BBE4386A17E96C0B008AF891 /* Default-568h@2x.png in Resources */,
+				BB399FAB17EEA4BE00217E89 /* Home.png in Resources */,
+				BB399FAA17EEA4BE00217E89 /* Globe.png in Resources */,
+				BB399FA917EEA4BE00217E89 /* Connect.png in Resources */,
 				BBE438B117E96E99008AF891 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,8 +393,10 @@
 				BBE438A817E96C8E008AF891 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				BBE438A917E96C8E008AF891 /* AFPropertyListRequestOperation.m in Sources */,
 				BBE438AA17E96C8E008AF891 /* AFURLConnectionOperation.m in Sources */,
+				BB399F9717EE580C00217E89 /* MeViewController.m in Sources */,
 				BBE438AB17E96C8E008AF891 /* AFXMLRequestOperation.m in Sources */,
 				BBE438AC17E96C8E008AF891 /* UIImageView+AFNetworking.m in Sources */,
+				BBF4AE8D17EBB8340066BB61 /* RegisterViewController.m in Sources */,
 				BBE438AF17E96CED008AF891 /* API.m in Sources */,
 				BB22EF7917E98C4C0041D720 /* LoginScreenViewController.m in Sources */,
 			);
