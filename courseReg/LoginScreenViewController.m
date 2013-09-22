@@ -80,6 +80,7 @@
 - (IBAction)reg_Click:(UIButton *)sender {
     
      [self performSegueWithIdentifier:@"LoginToRegister"sender:self];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
    }
 
 

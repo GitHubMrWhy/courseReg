@@ -66,11 +66,12 @@
                                    if ([json objectForKey:@"error"]==nil && [[res objectForKey:@"userID"] intValue] > 0) {
                                        //success
                                        [[API sharedInstance] setUser: res];
-                                       [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-                                       //show message to the user
+                                                                             //show message to the user
                                        
                                        
                                        [self performSegueWithIdentifier:@"RegisterToMain"sender:self];
+                                       [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+
                                    } else {
                                        //error
                                        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"My Error" message: [json objectForKey:@"error"] delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
