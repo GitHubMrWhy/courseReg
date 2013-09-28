@@ -35,6 +35,7 @@
      NSString* command = @"showTradeList";
     NSMutableDictionary* params =[NSMutableDictionary dictionaryWithObjectsAndKeys:
                                   command, @"command",
+                                
                                   nil];
     //make the call to the web API
     [[API sharedInstance] commandWithParams:params

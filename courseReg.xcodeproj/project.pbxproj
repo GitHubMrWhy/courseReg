@@ -15,6 +15,7 @@
 		BB399FAC17EEA4BE00217E89 /* List.png in Resources */ = {isa = PBXBuildFile; fileRef = BB399FA717EEA4BE00217E89 /* List.png */; };
 		BB399FAD17EEA4BE00217E89 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = BB399FA817EEA4BE00217E89 /* Settings.png */; };
 		BB399FB017EF547F00217E89 /* TradeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB399FAF17EF547F00217E89 /* TradeTableViewController.m */; };
+		BBC6DE7B17F69366008BA507 /* CourseListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC6DE7A17F69366008BA507 /* CourseListTableViewController.m */; };
 		BBE4385417E96C0B008AF891 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE4385317E96C0B008AF891 /* UIKit.framework */; };
 		BBE4385617E96C0B008AF891 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE4385517E96C0B008AF891 /* Foundation.framework */; };
 		BBE4385817E96C0B008AF891 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE4385717E96C0B008AF891 /* CoreGraphics.framework */; };
@@ -69,6 +70,8 @@
 		BB399FA817EEA4BE00217E89 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
 		BB399FAE17EF547F00217E89 /* TradeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeTableViewController.h; sourceTree = "<group>"; };
 		BB399FAF17EF547F00217E89 /* TradeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeTableViewController.m; sourceTree = "<group>"; };
+		BBC6DE7917F69366008BA507 /* CourseListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseListTableViewController.h; sourceTree = "<group>"; };
+		BBC6DE7A17F69366008BA507 /* CourseListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseListTableViewController.m; sourceTree = "<group>"; };
 		BBE4385017E96C0B008AF891 /* courseReg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = courseReg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBE4385317E96C0B008AF891 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BBE4385517E96C0B008AF891 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -201,6 +204,8 @@
 				BB399F9617EE580C00217E89 /* MeViewController.m */,
 				BBE438AD17E96CED008AF891 /* API.h */,
 				BBE438B017E96E99008AF891 /* MainStoryboard.storyboard */,
+				BBC6DE7917F69366008BA507 /* CourseListTableViewController.h */,
+				BBC6DE7A17F69366008BA507 /* CourseListTableViewController.m */,
 				BB399FAE17EF547F00217E89 /* TradeTableViewController.h */,
 				BB399FAF17EF547F00217E89 /* TradeTableViewController.m */,
 				BBF4AE8B17EBB8340066BB61 /* RegisterViewController.h */,
@@ -389,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBC6DE7B17F69366008BA507 /* CourseListTableViewController.m in Sources */,
 				BBE4386017E96C0B008AF891 /* main.m in Sources */,
 				BBE4386417E96C0B008AF891 /* AppDelegate.m in Sources */,
 				BBE438A417E96C8E008AF891 /* AFHTTPClient.m in Sources */,
