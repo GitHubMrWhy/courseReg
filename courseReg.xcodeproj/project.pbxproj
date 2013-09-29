@@ -9,11 +9,6 @@
 /* Begin PBXBuildFile section */
 		BB22EF7917E98C4C0041D720 /* LoginScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB22EF7817E98C4C0041D720 /* LoginScreenViewController.m */; };
 		BB399F9717EE580C00217E89 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB399F9617EE580C00217E89 /* MeViewController.m */; };
-		BB399FA917EEA4BE00217E89 /* Connect.png in Resources */ = {isa = PBXBuildFile; fileRef = BB399FA417EEA4BE00217E89 /* Connect.png */; };
-		BB399FAA17EEA4BE00217E89 /* Globe.png in Resources */ = {isa = PBXBuildFile; fileRef = BB399FA517EEA4BE00217E89 /* Globe.png */; };
-		BB399FAB17EEA4BE00217E89 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = BB399FA617EEA4BE00217E89 /* Home.png */; };
-		BB399FAC17EEA4BE00217E89 /* List.png in Resources */ = {isa = PBXBuildFile; fileRef = BB399FA717EEA4BE00217E89 /* List.png */; };
-		BB399FAD17EEA4BE00217E89 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = BB399FA817EEA4BE00217E89 /* Settings.png */; };
 		BB399FB017EF547F00217E89 /* TradeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB399FAF17EF547F00217E89 /* TradeTableViewController.m */; };
 		BBC6DE7B17F69366008BA507 /* CourseListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC6DE7A17F69366008BA507 /* CourseListTableViewController.m */; };
 		BBE4385417E96C0B008AF891 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE4385317E96C0B008AF891 /* UIKit.framework */; };
@@ -47,6 +42,7 @@
 		BBE438B117E96E99008AF891 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBE438B017E96E99008AF891 /* MainStoryboard.storyboard */; };
 		BBF4AE8D17EBB8340066BB61 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF4AE8C17EBB8340066BB61 /* RegisterViewController.m */; };
 		BBFAE5A317F8BC5A00E9A11B /* TradeItemDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFAE5A217F8BC5A00E9A11B /* TradeItemDetailTableViewController.m */; };
+		BBFAE5AB17F8D84400E9A11B /* iconX2.png in Resources */ = {isa = PBXBuildFile; fileRef = BBFAE5AA17F8D84400E9A11B /* iconX2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,11 +60,6 @@
 		BB22EF7817E98C4C0041D720 /* LoginScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginScreenViewController.m; sourceTree = "<group>"; };
 		BB399F9517EE580C00217E89 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
 		BB399F9617EE580C00217E89 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
-		BB399FA417EEA4BE00217E89 /* Connect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Connect.png; sourceTree = "<group>"; };
-		BB399FA517EEA4BE00217E89 /* Globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe.png; sourceTree = "<group>"; };
-		BB399FA617EEA4BE00217E89 /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home.png; sourceTree = "<group>"; };
-		BB399FA717EEA4BE00217E89 /* List.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = List.png; sourceTree = "<group>"; };
-		BB399FA817EEA4BE00217E89 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
 		BB399FAE17EF547F00217E89 /* TradeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeTableViewController.h; sourceTree = "<group>"; };
 		BB399FAF17EF547F00217E89 /* TradeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeTableViewController.m; sourceTree = "<group>"; };
 		BBC6DE7917F69366008BA507 /* CourseListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseListTableViewController.h; sourceTree = "<group>"; };
@@ -122,6 +113,7 @@
 		BBF4AE8C17EBB8340066BB61 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		BBFAE5A117F8BC5A00E9A11B /* TradeItemDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeItemDetailTableViewController.h; sourceTree = "<group>"; };
 		BBFAE5A217F8BC5A00E9A11B /* TradeItemDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeItemDetailTableViewController.m; sourceTree = "<group>"; };
+		BBFAE5AA17F8D84400E9A11B /* iconX2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconX2.png; path = icons/iconX2.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,11 +147,7 @@
 		BB399FA317EEA4BE00217E89 /* Icon */ = {
 			isa = PBXGroup;
 			children = (
-				BB399FA417EEA4BE00217E89 /* Connect.png */,
-				BB399FA517EEA4BE00217E89 /* Globe.png */,
-				BB399FA617EEA4BE00217E89 /* Home.png */,
-				BB399FA717EEA4BE00217E89 /* List.png */,
-				BB399FA817EEA4BE00217E89 /* Settings.png */,
+				BBFAE5AA17F8D84400E9A11B /* iconX2.png */,
 			);
 			path = Icon;
 			sourceTree = "<group>";
@@ -355,16 +343,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB399FAD17EEA4BE00217E89 /* Settings.png in Resources */,
-				BB399FAC17EEA4BE00217E89 /* List.png in Resources */,
 				BBE4385E17E96C0B008AF891 /* InfoPlist.strings in Resources */,
 				BBE4386617E96C0B008AF891 /* Default.png in Resources */,
 				BBE4386817E96C0B008AF891 /* Default@2x.png in Resources */,
 				BBE4386A17E96C0B008AF891 /* Default-568h@2x.png in Resources */,
-				BB399FAB17EEA4BE00217E89 /* Home.png in Resources */,
-				BB399FAA17EEA4BE00217E89 /* Globe.png in Resources */,
-				BB399FA917EEA4BE00217E89 /* Connect.png in Resources */,
 				BBE438B117E96E99008AF891 /* MainStoryboard.storyboard in Resources */,
+				BBFAE5AB17F8D84400E9A11B /* iconX2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,7 +506,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "courseReg/courseReg-Prefix.pch";
 				INFOPLIST_FILE = "courseReg/courseReg-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -533,7 +519,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "courseReg/courseReg-Prefix.pch";
 				INFOPLIST_FILE = "courseReg/courseReg-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
