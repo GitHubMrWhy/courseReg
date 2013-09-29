@@ -17,8 +17,10 @@
 @property (strong, nonatomic) IBOutlet UITextField *password_TextField;
 @property (strong, nonatomic) IBOutlet UIButton *login_Button;
 @property (strong, nonatomic) IBOutlet UIButton *reg_Button;
+
 - (IBAction)login_Click:(UIButton *)sender;
 - (IBAction)reg_Click:(UIButton *)sender;
+
 
 
 

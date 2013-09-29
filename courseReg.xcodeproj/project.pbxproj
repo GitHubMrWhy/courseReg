@@ -46,6 +46,7 @@
 		BBE438AF17E96CED008AF891 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE438AE17E96CED008AF891 /* API.m */; };
 		BBE438B117E96E99008AF891 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBE438B017E96E99008AF891 /* MainStoryboard.storyboard */; };
 		BBF4AE8D17EBB8340066BB61 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF4AE8C17EBB8340066BB61 /* RegisterViewController.m */; };
+		BBFAE5A317F8BC5A00E9A11B /* TradeItemDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFAE5A217F8BC5A00E9A11B /* TradeItemDetailTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,8 @@
 		BBE438B017E96E99008AF891 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		BBF4AE8B17EBB8340066BB61 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		BBF4AE8C17EBB8340066BB61 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		BBFAE5A117F8BC5A00E9A11B /* TradeItemDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeItemDetailTableViewController.h; sourceTree = "<group>"; };
+		BBFAE5A217F8BC5A00E9A11B /* TradeItemDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeItemDetailTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +207,8 @@
 				BB399F9617EE580C00217E89 /* MeViewController.m */,
 				BBE438AD17E96CED008AF891 /* API.h */,
 				BBE438B017E96E99008AF891 /* MainStoryboard.storyboard */,
+				BBFAE5A117F8BC5A00E9A11B /* TradeItemDetailTableViewController.h */,
+				BBFAE5A217F8BC5A00E9A11B /* TradeItemDetailTableViewController.m */,
 				BBC6DE7917F69366008BA507 /* CourseListTableViewController.h */,
 				BBC6DE7A17F69366008BA507 /* CourseListTableViewController.m */,
 				BB399FAE17EF547F00217E89 /* TradeTableViewController.h */,
@@ -400,6 +405,7 @@
 				BBE438A417E96C8E008AF891 /* AFHTTPClient.m in Sources */,
 				BBE438A517E96C8E008AF891 /* AFHTTPRequestOperation.m in Sources */,
 				BBE438A617E96C8E008AF891 /* AFImageRequestOperation.m in Sources */,
+				BBFAE5A317F8BC5A00E9A11B /* TradeItemDetailTableViewController.m in Sources */,
 				BBE438A717E96C8E008AF891 /* AFJSONRequestOperation.m in Sources */,
 				BBE438A817E96C8E008AF891 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				BBE438A917E96C8E008AF891 /* AFPropertyListRequestOperation.m in Sources */,

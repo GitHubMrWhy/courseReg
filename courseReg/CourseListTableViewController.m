@@ -16,6 +16,7 @@
 @implementation CourseListTableViewController
 @synthesize courseListJson;
 UIAlertView *addAlert;
+UIRefreshControl *refreshControl;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -35,43 +36,47 @@ UIAlertView *addAlert;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //读取course list 数据
+    [self showCourseList];
     
-    NSString* command = @"showCourseList";
-    NSMutableDictionary* params =[NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                  command, @"command",
-                                [[API sharedInstance].user objectForKey:@"username"],@"username",
-                                  nil];
-    //make the call to the web API
+    // Refresh
+    // 创建UIRefreshControl实例
+    refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh"];
     
-     NSLog(@"user is %@",  [[API sharedInstance].user objectForKey:@"username"]);
-    [[API sharedInstance] commandWithParams:params
-                               onCompletion:^(NSDictionary *json) {
-                                   //handle the response
-                                   //result returned
-                                  
-                                   //NSLog(@"res is %@", res);
-                                    NSLog(@"json is %@", json);
-                                   self.courseListJson=json;
-                                   //if successful, i can have a look inside parsedJSON - its worked as an NSdictionary and NSArray
-                                   
-                                   
-                                   
-                                   
-                                   if ([json objectForKey:@"error"]==nil ) {
-                                       //success
-                                       [self.tableView reloadData];
-                                   } else {
-                                       //error
-                                       UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"My Error" message: [json objectForKey:@"error"] delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
-                                       [alertView show];
-                                       
-                                       
-                                   }
-                                   
-                               }];
+    // 设置下拉事件的响应方法
+    [refreshControl addTarget:self
+                       action:@selector(refreshTableView:)
+             forControlEvents:UIControlEventValueChanged];
+    
+    // 赋值给UITableViewController
+    [self.tableView addSubview:refreshControl];
     
 
 }
+
+-(void) refreshTableView:(UIRefreshControl *) controller
+{
+    if (controller.refreshing) {
+        controller.attributedTitle = [[NSAttributedString alloc]initWithString:@"Loading..."];
+        //添加新的模拟数据
+        //NSLog(@"下拉刷新请求");
+        //模拟请求完成之后，回调方法callBackMethod
+        [self performSelector:@selector(callBackMethod) withObject:nil afterDelay:0];
+    }
+    
+}
+
+-(void)callBackMethod
+
+{
+    [self showCourseList];
+    [self.tableView reloadData];
+    [refreshControl endRefreshing];
+    refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"Pull to refresh"];
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -99,8 +104,8 @@ UIAlertView *addAlert;
 {
     
     // Configure the cell...
-    
-    static NSString *SimpleTableIdentifier = @"SimlpeTableIdentifier";
+    //读取 remaing seat
+    static NSString *SimpleTableIdentifier = @"courseCellItemIdentifier";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SimpleTableIdentifier];
     if (cell == nil) {
@@ -108,41 +113,115 @@ UIAlertView *addAlert;
                                       reuseIdentifier:SimpleTableIdentifier] ;
         
     }
-   NSLog(@"%d",[indexPath row]);
+  // NSLog(@"%d",[indexPath row]);
     NSDictionary *tempDictionary= [[self.courseListJson objectForKey:@"result"]objectAtIndex:indexPath.row];
     
- 
-    
+   
     cell.textLabel.text = [tempDictionary objectForKey:@"crn"];
+   
+    NSMutableDictionary* params =[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                  @"checkCRN", @"command",
+                                 [tempDictionary objectForKey:@"crn"],@"crn",
+                                  nil];
+    //make the call to the web API
     
+    [[API sharedInstance] commandWithParams:params
+                               onCompletion:^(NSDictionary *json) {
+                                   //handle the response
+                                   //result returned
+                                   //NSLog(@"res is %@", res);
+                                  // NSLog(@"crn avalible is %@", json);
+                                   //NSLog(@"reming is %@", [json objectForKey:@"Remaining"]);
+                                   //if successful, i can have a look inside parsedJSON - its worked as an NSdictionary and NSArray
+                                     cell.detailTextLabel.text = [json objectForKey:@"Remaining"];
+                                }];
+    
+
     // Configure the cell...
     
     return cell;
 
     }
+-(void)showCourseList{
+    //function to realod new data from serves
+    NSString* command = @"showCourseList";
+    NSMutableDictionary* params =[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                  command, @"command",
+                                  [[API sharedInstance].user objectForKey:@"username"],@"username",
+                                  nil];
+    //make the call to the web API
+    
+    //NSLog(@"user is %@",  [[API sharedInstance].user objectForKey:@"username"]);
+    [[API sharedInstance] commandWithParams:params
+                               onCompletion:^(NSDictionary *json) {
+                                   //handle the response
+                                   //result returned
+                                //NSLog(@"res is %@", res);
+                                   // NSLog(@"json is %@", json);
+                                   self.courseListJson=json;
+                                   //if successful, i can have a look inside parsedJSON - its worked as an NSdictionary and NSArray
 
-/*
+                                   if ([json objectForKey:@"error"]==nil ) {
+                                       //success
+                                       [self.tableView reloadData];
+                                   } else {
+                                       //error
+                                       UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"My Error" message: [json objectForKey:@"error"] delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
+                                       [alertView show];
+ 
+                                   }
+                               }];
+}
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
+    //Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //delete  a cell data
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSLog(@"delete %@",[tableView cellForRowAtIndexPath:indexPath].textLabel.text);
+        
+        NSMutableDictionary* params =[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                      @"deleteCourseItem", @"command",
+                                      [[API sharedInstance].user objectForKey:@"username"],@"username",
+                                      [tableView cellForRowAtIndexPath:indexPath].textLabel.text,@"crn",
+                                      nil];
+        //make the call to the web API
+        [[API sharedInstance] commandWithParams:params
+                                   onCompletion:^(NSDictionary *json) {
+                                       
+                                       
+                                       if ([json objectForKey:@"error"]==nil ) {
+                                           //success
+                                           self.courseListJson=json;
+
+                                           
+                                       } else {
+                                           //error
+                                           UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"My Error" message: [json objectForKey:@"error"] delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
+                                           [alertView show];
+                                           
+                                       }
+
+                                    //if successful, i can have a look inside parsedJSON - its worked as an NSdictionary and NSArray
+                                    }];
+       // int row=indexPath.row;
+       //  [[self.courseListJson objectForKey:@"result"] removeObjectAtIndex:row] ;
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+
+    }
+   // else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    //}
 }
-*/
 
 /*
 // Override to support rearranging the table view.
@@ -189,14 +268,16 @@ UIAlertView *addAlert;
 
 - (void) alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
     //If cancel pressed
+    //add an course item to the list
     if (alertView.tag == 1) {
         if(buttonIndex == 0){
-            NSLog(@"点击了确定");
+            //NSLog(@"点击了确定");
             //myCore=[[toDoListCore alloc] init];
-       
+             [self showCourseList];
             [self.tableView reloadData];
             //If item added pressed
         }else if (buttonIndex == 1){
+            if  ([[alertView textFieldAtIndex:0] text].length==5){
             NSString* command = @"AddCourseToList";
             NSMutableDictionary* params =[NSMutableDictionary dictionaryWithObjectsAndKeys:
                                           command, @"command",
@@ -204,8 +285,8 @@ UIAlertView *addAlert;
                                           [[alertView textFieldAtIndex:0] text],@"crn",
                                           nil];
             //make the call to the web API
-            NSLog(@"add txt is %@",[[alertView textFieldAtIndex:0] text]);
-            NSLog(@"user is %@",  [[API sharedInstance].user objectForKey:@"username"]);
+            //NSLog(@"add txt is %@",[[alertView textFieldAtIndex:0] text]);
+           // NSLog(@"user is %@",  [[API sharedInstance].user objectForKey:@"username"]);
             [[API sharedInstance] commandWithParams:params
                                        onCompletion:^(NSDictionary *json) {
                                            //handle the response
@@ -217,7 +298,7 @@ UIAlertView *addAlert;
                                            //if successful, i can have a look inside parsedJSON - its worked as an NSdictionary and NSArray
                             
                                            //NSLog(@"res is %@", res);
-                                           NSLog(@"json is %@", json);
+                                           //NSLog(@"json is %@", json);
                                            self.courseListJson=json;
                                            //if successful, i can have a look inside parsedJSON - its worked as an NSdictionary and NSArray
 
@@ -233,6 +314,13 @@ UIAlertView *addAlert;
                                            }
                                            
                                        }];
+                
+            }else{
+                UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"Error" message: @"Please enter valid CRN" delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
+                [alertView show];
+
+                
+            }
             
         }
     }

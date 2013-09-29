@@ -8,6 +8,7 @@
 
 #import "TradeTableViewController.h"
 #import "API.h"
+#import "TradeItemDetailTableViewController.h"
 @interface TradeTableViewController ()
 
 @end
@@ -32,10 +33,20 @@
     [super viewDidLoad];
     
     
-     NSString* command = @"showTradeList";
+         // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+ 
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [self showTradeList];
+
+}
+-(void)showTradeList{
+    NSString* command = @"showTradeList";
     NSMutableDictionary* params =[NSMutableDictionary dictionaryWithObjectsAndKeys:
                                   command, @"command",
-                                
+                                  
                                   nil];
     //make the call to the web API
     [[API sharedInstance] commandWithParams:params
@@ -43,37 +54,27 @@
                                    //handle the response
                                    //result returned
                                    NSDictionary* res = [[json objectForKey:@"result"] objectAtIndex:0];
-                                    //NSLog(@"res is %@", res);
+                                   //NSLog(@"res is %@", res);
                                    // NSLog(@"json is %@", json);
                                    self.nsjson=json;
                                    //if successful, i can have a look inside parsedJSON - its worked as an NSdictionary and NSArray
                                    
-                                  
-                                   
-                                   
                                    if ([json objectForKey:@"error"]==nil ) {
                                        //success
-                                      [self.tableView reloadData];
+                                       [self.tableView reloadData];
                                    } else {
                                        //error
                                        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"My Error" message: [json objectForKey:@"error"] delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
                                        [alertView show];
-                                       
                                        
                                    }
                                    
                                }];
     
     
-    
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -106,7 +107,7 @@
                                       reuseIdentifier:SimpleTableIdentifier] ;
         
     }
-    NSLog(@"%d",[indexPath row]);
+    //NSLog(@"%d",[indexPath row]);
     NSDictionary *tempDictionary= [[self.nsjson objectForKey:@"result"]objectAtIndex:indexPath.row];
     
     cell.detailTextLabel.text = [tempDictionary objectForKey:@"crn"];
@@ -157,21 +158,28 @@
 }
 */
 
-/*
 #pragma mark - Navigation
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(id)sender
+{
+    [self performSegueWithIdentifier:@"TradeListToTradeItemDetail" sender:self];
+}
 
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    
+    if([segue.identifier isEqualToString:@"TradeListToTradeItemDetail"])
+    {
+         TradeItemDetailTableViewController *transferViewController = segue.destinationViewController;
+        transferViewController.crn =[[[self.nsjson objectForKey:@"result"] objectAtIndex:[self.tableView indexPathForSelectedRow].row]objectForKey:@"crn"];
+        transferViewController.userPost =[[[self.nsjson objectForKey:@"result"] objectAtIndex:[self.tableView indexPathForSelectedRow].row]objectForKey:@"user"];
+        transferViewController.courseNum = [[[self.nsjson objectForKey:@"result"] objectAtIndex:[self.tableView indexPathForSelectedRow].row]objectForKey:@"course_number"];
+    }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
 
- */
 
-- (IBAction)search_button_click:(UIBarButtonItem *)sender {
-    
-    [self performSegueWithIdentifier:@"TradeListToSearchTrade"sender:self];
 
-}
+
 @end

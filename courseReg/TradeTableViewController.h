@@ -14,6 +14,6 @@
 @property (strong, nonatomic) NSMutableArray *listData;
 @property(strong,nonatomic)NSDictionary *nsjson;
 @property(strong,nonatomic)NSArray *array;
-- (IBAction)search_button_click:(UIBarButtonItem *)sender;
+
 
 @end
