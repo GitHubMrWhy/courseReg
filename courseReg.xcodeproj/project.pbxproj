@@ -43,6 +43,10 @@
 		BBF4AE8D17EBB8340066BB61 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF4AE8C17EBB8340066BB61 /* RegisterViewController.m */; };
 		BBFAE5A317F8BC5A00E9A11B /* TradeItemDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFAE5A217F8BC5A00E9A11B /* TradeItemDetailTableViewController.m */; };
 		BBFAE5AB17F8D84400E9A11B /* iconX2.png in Resources */ = {isa = PBXBuildFile; fileRef = BBFAE5AA17F8D84400E9A11B /* iconX2.png */; };
+		BBFAE5B017F8DA5B00E9A11B /* eye.png in Resources */ = {isa = PBXBuildFile; fileRef = BBFAE5AC17F8DA5B00E9A11B /* eye.png */; };
+		BBFAE5B217F8DA5B00E9A11B /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = BBFAE5AE17F8DA5B00E9A11B /* list.png */; };
+		BBFAE5B317F8DA5B00E9A11B /* me.png in Resources */ = {isa = PBXBuildFile; fileRef = BBFAE5AF17F8DA5B00E9A11B /* me.png */; };
+		BBFAE5B617F8DB4700E9A11B /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFAE5B517F8DB4700E9A11B /* ProfileTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +118,11 @@
 		BBFAE5A117F8BC5A00E9A11B /* TradeItemDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeItemDetailTableViewController.h; sourceTree = "<group>"; };
 		BBFAE5A217F8BC5A00E9A11B /* TradeItemDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeItemDetailTableViewController.m; sourceTree = "<group>"; };
 		BBFAE5AA17F8D84400E9A11B /* iconX2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconX2.png; path = icons/iconX2.png; sourceTree = SOURCE_ROOT; };
+		BBFAE5AC17F8DA5B00E9A11B /* eye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eye.png; path = icons/eye.png; sourceTree = SOURCE_ROOT; };
+		BBFAE5AE17F8DA5B00E9A11B /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = list.png; path = icons/list.png; sourceTree = SOURCE_ROOT; };
+		BBFAE5AF17F8DA5B00E9A11B /* me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = me.png; path = icons/me.png; sourceTree = SOURCE_ROOT; };
+		BBFAE5B417F8DB4700E9A11B /* ProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewController.h; sourceTree = "<group>"; };
+		BBFAE5B517F8DB4700E9A11B /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +156,9 @@
 		BB399FA317EEA4BE00217E89 /* Icon */ = {
 			isa = PBXGroup;
 			children = (
+				BBFAE5AC17F8DA5B00E9A11B /* eye.png */,
+				BBFAE5AE17F8DA5B00E9A11B /* list.png */,
+				BBFAE5AF17F8DA5B00E9A11B /* me.png */,
 				BBFAE5AA17F8D84400E9A11B /* iconX2.png */,
 			);
 			path = Icon;
@@ -195,6 +207,8 @@
 				BB399F9617EE580C00217E89 /* MeViewController.m */,
 				BBE438AD17E96CED008AF891 /* API.h */,
 				BBE438B017E96E99008AF891 /* MainStoryboard.storyboard */,
+				BBFAE5B417F8DB4700E9A11B /* ProfileTableViewController.h */,
+				BBFAE5B517F8DB4700E9A11B /* ProfileTableViewController.m */,
 				BBFAE5A117F8BC5A00E9A11B /* TradeItemDetailTableViewController.h */,
 				BBFAE5A217F8BC5A00E9A11B /* TradeItemDetailTableViewController.m */,
 				BBC6DE7917F69366008BA507 /* CourseListTableViewController.h */,
@@ -344,9 +358,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBE4385E17E96C0B008AF891 /* InfoPlist.strings in Resources */,
+				BBFAE5B217F8DA5B00E9A11B /* list.png in Resources */,
 				BBE4386617E96C0B008AF891 /* Default.png in Resources */,
 				BBE4386817E96C0B008AF891 /* Default@2x.png in Resources */,
+				BBFAE5B317F8DA5B00E9A11B /* me.png in Resources */,
 				BBE4386A17E96C0B008AF891 /* Default-568h@2x.png in Resources */,
+				BBFAE5B017F8DA5B00E9A11B /* eye.png in Resources */,
 				BBE438B117E96E99008AF891 /* MainStoryboard.storyboard in Resources */,
 				BBFAE5AB17F8D84400E9A11B /* iconX2.png in Resources */,
 			);
@@ -394,6 +411,7 @@
 				BBE438A817E96C8E008AF891 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				BBE438A917E96C8E008AF891 /* AFPropertyListRequestOperation.m in Sources */,
 				BBE438AA17E96C8E008AF891 /* AFURLConnectionOperation.m in Sources */,
+				BBFAE5B617F8DB4700E9A11B /* ProfileTableViewController.m in Sources */,
 				BB399F9717EE580C00217E89 /* MeViewController.m in Sources */,
 				BBE438AB17E96C8E008AF891 /* AFXMLRequestOperation.m in Sources */,
 				BBE438AC17E96C8E008AF891 /* UIImageView+AFNetworking.m in Sources */,

@@ -52,6 +52,7 @@
     self.username_TextField.leftView = leftView1;
     self.username_TextField.font = [UIFont fontWithName:fontName size:16.0f];
     
+    
     self.password_TextField.backgroundColor = [UIColor whiteColor];
     self.password_TextField.layer.cornerRadius = 3.0f;
     self.password_TextField.placeholder = @"Password";
@@ -59,6 +60,7 @@
     UIView* leftView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
     self.password_TextField.leftView = leftView2;
     self.password_TextField.font = [UIFont fontWithName:fontName size:16.0f];
+    self.password_TextField.secureTextEntry=YES;
     
     self.login_Button.backgroundColor = darkColor;
     self.login_Button.layer.cornerRadius = 3.0f;
@@ -114,7 +116,9 @@
                                        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
                                        //show message to the user
                                     [self performSegueWithIdentifier:@"LoginToMain"sender:self];
-                                       
+                                       username_TextField.text=@"";
+                                       password_TextField.text=@"";
+
                                    } else {
                                        //error
                                        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"My Error" message: [json objectForKey:@"error"] delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
@@ -133,6 +137,8 @@
     
      [self performSegueWithIdentifier:@"LoginToRegister"sender:self];
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    username_TextField.text=@"";
+    password_TextField.text=@"";
    }
 
 
