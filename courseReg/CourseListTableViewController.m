@@ -5,9 +5,11 @@
 //  Created by Mingsheng Xu on 9/28/13.
 //  Copyright (c) 2013 Mingsheng Xu. All rights reserved.
 //
-
+#import <CoreMotion/CoreMotion.h>
 #import "CourseListTableViewController.h"
 #import "API.h"
+
+#define accelerationThreshold 0.30
 
 @interface CourseListTableViewController ()
 
@@ -17,6 +19,9 @@
 @synthesize courseListJson;
 UIAlertView *addAlert;
 UIRefreshControl *refreshControl;
+
+
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -48,6 +53,19 @@ UIRefreshControl *refreshControl;
     [refreshControl addTarget:self
                        action:@selector(refreshTableView:)
              forControlEvents:UIControlEventValueChanged];
+    /*
+    //CMmotionManager
+    CMMotionManager *motionManager;
+    motionManager = [[CMMotionManager alloc] init];
+    motionManager.deviceMotionUpdateInterval = 3;
+    [motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
+        [self motionMethod:motion];
+    }];
+    
+    
+    
+    */
+    
     
     // 赋值给UITableViewController
     [self.tableView addSubview:refreshControl];
@@ -156,7 +174,6 @@ UIRefreshControl *refreshControl;
                                onCompletion:^(NSDictionary *json) {
                                    //handle the response
                                    //result returned
-                                //NSLog(@"res is %@", res);
                                    // NSLog(@"json is %@", json);
                                    self.courseListJson=json;
                                    //if successful, i can have a look inside parsedJSON - its worked as an NSdictionary and NSArray
@@ -325,4 +342,17 @@ UIRefreshControl *refreshControl;
         }
     }
 }
+/*
+-(void) motionMethod:(CMDeviceMotion *) deviceMotion
+{
+    CMAcceleration userAccerlation = deviceMotion.userAcceleration;
+    if(fabs(userAccerlation.x)>accelerationThreshold
+       ||fabs(userAccerlation.y)>accelerationThreshold
+       ||fabs(userAccerlation.z)>accelerationThreshold)
+    {
+        //TODO SOMETHING
+    }
+}
+*/
+
 @end

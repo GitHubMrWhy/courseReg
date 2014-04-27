@@ -47,6 +47,7 @@
 		BBFAE5B217F8DA5B00E9A11B /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = BBFAE5AE17F8DA5B00E9A11B /* list.png */; };
 		BBFAE5B317F8DA5B00E9A11B /* me.png in Resources */ = {isa = PBXBuildFile; fileRef = BBFAE5AF17F8DA5B00E9A11B /* me.png */; };
 		BBFAE5B617F8DB4700E9A11B /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFAE5B517F8DB4700E9A11B /* ProfileTableViewController.m */; };
+		BFB3AD44190DC129004EF20A /* UIAlertView+error.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB3AD43190DC129004EF20A /* UIAlertView+error.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,8 @@
 		BBFAE5AF17F8DA5B00E9A11B /* me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = me.png; path = icons/me.png; sourceTree = SOURCE_ROOT; };
 		BBFAE5B417F8DB4700E9A11B /* ProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewController.h; sourceTree = "<group>"; };
 		BBFAE5B517F8DB4700E9A11B /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
+		BFB3AD42190DC129004EF20A /* UIAlertView+error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+error.h"; sourceTree = "<group>"; };
+		BFB3AD43190DC129004EF20A /* UIAlertView+error.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+error.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +206,8 @@
 		BBE4385917E96C0B008AF891 /* courseReg */ = {
 			isa = PBXGroup;
 			children = (
+				BFB3AD42190DC129004EF20A /* UIAlertView+error.h */,
+				BFB3AD43190DC129004EF20A /* UIAlertView+error.m */,
 				BB399F9517EE580C00217E89 /* MeViewController.h */,
 				BB399F9617EE580C00217E89 /* MeViewController.m */,
 				BBE438AD17E96CED008AF891 /* API.h */,
@@ -409,6 +414,7 @@
 				BBFAE5A317F8BC5A00E9A11B /* TradeItemDetailTableViewController.m in Sources */,
 				BBE438A717E96C8E008AF891 /* AFJSONRequestOperation.m in Sources */,
 				BBE438A817E96C8E008AF891 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				BFB3AD44190DC129004EF20A /* UIAlertView+error.m in Sources */,
 				BBE438A917E96C8E008AF891 /* AFPropertyListRequestOperation.m in Sources */,
 				BBE438AA17E96C8E008AF891 /* AFURLConnectionOperation.m in Sources */,
 				BBFAE5B617F8DB4700E9A11B /* ProfileTableViewController.m in Sources */,

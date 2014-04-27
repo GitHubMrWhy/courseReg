@@ -55,12 +55,23 @@
 }
 -(void)commandWithParams:(NSMutableDictionary*)params onCompletion:(JSONResponseBlock)completionBlock
 {
+    NSData* uploadFile = nil;
+    if ([params objectForKey:@"file"]) {
+        uploadFile = (NSData*)[params objectForKey:@"file"];
+        [params removeObjectForKey:@"file"];
+    }
     NSMutableURLRequest *apiRequest =
     [self multipartFormRequestWithMethod:@"POST"
                                     path:kAPIPath
                               parameters:params
                constructingBodyWithBlock: ^(id formData) {
                    //TODO: attach file if needed
+                   if (uploadFile) {
+                       [formData appendPartWithFileData:uploadFile
+                                                   name:@"file"
+                                               fileName:@"photo.jpg"
+                                               mimeType:@"image/jpeg"];
+                   }
                }];
     
     AFJSONRequestOperation* operation = [[AFJSONRequestOperation alloc] initWithRequest: apiRequest];
