@@ -150,7 +150,7 @@
 -(void) loadPhoto {
     
     NSString *photoURL1 = @"http://www.mingshengxu.com/promos/img/";
-    NSString *photoURL = [NSString stringWithFormat:@"%@%@_profile-thumb",photoURL1,[[API sharedInstance].user objectForKey:@"username"]];
+    NSString *photoURL = [NSString stringWithFormat:@"%@%@_profile",photoURL1,[[API sharedInstance].user objectForKey:@"username"]];
     [profileImageView setImageWithURL:[NSURL URLWithString:photoURL] ];
     
     
