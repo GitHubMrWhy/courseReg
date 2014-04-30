@@ -39,7 +39,7 @@
   
     self.logout_Button.titleLabel.font=[UIFont fontWithName:@"Avenir-Black" size:12.0f];
     self.logout_Button.titleLabel.textColor=[UIColor colorWithWhite:0.5 alpha:1.0f];
-   
+    [self loadPhoto];
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,37 +66,10 @@
 
 -(void) loadPhoto {
     
-    
-    NSMutableDictionary* params =[NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                 @"retrievePhoto",@"command",
-                                 @"123", @"username",
-                                  nil];
-
-    //make the call to the web API
-    [[API sharedInstance] commandWithParams:params
-                               onCompletion:^(NSDictionary *json) {
-                                   //handle the response
-                                   //result returned
-                                   NSDictionary* res = [[json objectForKey:@"result"] objectAtIndex:0];
-                                   if ([json objectForKey:@"error"]==nil && [[res objectForKey:@"userID"] intValue] > 0) {
-                                       //success
-                                       [[API sharedInstance] setUser: res];
-                                       //show message to the user
-                                       
-                                       
-                                       [self performSegueWithIdentifier:@"RegisterToMain"sender:self];
-                                       [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-                                       
-                                   } else {
-                                       //error
-                                       UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"My Error" message: [json objectForKey:@"error"] delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
-                                       [alertView show];
-                                       
-                                       
-                                   }
-                                   
-                               }];
-
+    NSString *photoURL1 = @"http://www.mingshengxu.com/promos/img/";
+    NSString *photoURL = [NSString stringWithFormat:@"%@%@_profile-thumb",photoURL1,[[API sharedInstance].user objectForKey:@"username"]];
+    [photo setImageWithURL:[NSURL URLWithString:photoURL] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+ 
     
 }
 #pragma mark - Table view data source
