@@ -39,7 +39,7 @@
   
     self.logout_Button.titleLabel.font=[UIFont fontWithName:@"Avenir-Black" size:12.0f];
     self.logout_Button.titleLabel.textColor=[UIColor colorWithWhite:0.5 alpha:1.0f];
-    [self loadPhoto];
+    //[self loadPhoto];
 }
 
 - (void)didReceiveMemoryWarning

@@ -10,6 +10,11 @@
 		BB22EF7917E98C4C0041D720 /* LoginScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB22EF7817E98C4C0041D720 /* LoginScreenViewController.m */; };
 		BB399F9717EE580C00217E89 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB399F9617EE580C00217E89 /* MeViewController.m */; };
 		BB399FB017EF547F00217E89 /* TradeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB399FAF17EF547F00217E89 /* TradeTableViewController.m */; };
+		BBA3929E1910B2CF009F84A2 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA3929D1910B2CF009F84A2 /* ProfileViewController.m */; };
+		BBA392A01910B48E009F84A2 /* default_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = BBA3929F1910B48E009F84A2 /* default_profile.png */; };
+		BBA392A71910B54F009F84A2 /* feed-armchair.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BBA392A51910B54F009F84A2 /* feed-armchair.jpg */; };
+		BBA392A81910B54F009F84A2 /* feed-bridge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BBA392A61910B54F009F84A2 /* feed-bridge.jpg */; };
+		BBA392AA1910B57B009F84A2 /* bridge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BBA392A91910B57B009F84A2 /* bridge.jpg */; };
 		BBC6DE7B17F69366008BA507 /* CourseListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC6DE7A17F69366008BA507 /* CourseListTableViewController.m */; };
 		BBE4385417E96C0B008AF891 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE4385317E96C0B008AF891 /* UIKit.framework */; };
 		BBE4385617E96C0B008AF891 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE4385517E96C0B008AF891 /* Foundation.framework */; };
@@ -67,6 +72,12 @@
 		BB399F9617EE580C00217E89 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		BB399FAE17EF547F00217E89 /* TradeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeTableViewController.h; sourceTree = "<group>"; };
 		BB399FAF17EF547F00217E89 /* TradeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeTableViewController.m; sourceTree = "<group>"; };
+		BBA3929C1910B2CF009F84A2 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		BBA3929D1910B2CF009F84A2 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		BBA3929F1910B48E009F84A2 /* default_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = default_profile.png; path = icons/default_profile.png; sourceTree = SOURCE_ROOT; };
+		BBA392A51910B54F009F84A2 /* feed-armchair.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "feed-armchair.jpg"; path = "icons/feed-armchair.jpg"; sourceTree = SOURCE_ROOT; };
+		BBA392A61910B54F009F84A2 /* feed-bridge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "feed-bridge.jpg"; path = "icons/feed-bridge.jpg"; sourceTree = SOURCE_ROOT; };
+		BBA392A91910B57B009F84A2 /* bridge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bridge.jpg; path = icons/bridge.jpg; sourceTree = SOURCE_ROOT; };
 		BBC6DE7917F69366008BA507 /* CourseListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseListTableViewController.h; sourceTree = "<group>"; };
 		BBC6DE7A17F69366008BA507 /* CourseListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseListTableViewController.m; sourceTree = "<group>"; };
 		BBE4385017E96C0B008AF891 /* courseReg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = courseReg.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +170,10 @@
 		BB399FA317EEA4BE00217E89 /* Icon */ = {
 			isa = PBXGroup;
 			children = (
+				BBA392A51910B54F009F84A2 /* feed-armchair.jpg */,
+				BBA392A61910B54F009F84A2 /* feed-bridge.jpg */,
+				BBA392A91910B57B009F84A2 /* bridge.jpg */,
+				BBA3929F1910B48E009F84A2 /* default_profile.png */,
 				BBFAE5AC17F8DA5B00E9A11B /* eye.png */,
 				BBFAE5AE17F8DA5B00E9A11B /* list.png */,
 				BBFAE5AF17F8DA5B00E9A11B /* me.png */,
@@ -212,6 +227,8 @@
 				BB399F9617EE580C00217E89 /* MeViewController.m */,
 				BBE438AD17E96CED008AF891 /* API.h */,
 				BBE438B017E96E99008AF891 /* MainStoryboard.storyboard */,
+				BBA3929C1910B2CF009F84A2 /* ProfileViewController.h */,
+				BBA3929D1910B2CF009F84A2 /* ProfileViewController.m */,
 				BBFAE5B417F8DB4700E9A11B /* ProfileTableViewController.h */,
 				BBFAE5B517F8DB4700E9A11B /* ProfileTableViewController.m */,
 				BBFAE5A117F8BC5A00E9A11B /* TradeItemDetailTableViewController.h */,
@@ -366,7 +383,11 @@
 				BBFAE5B217F8DA5B00E9A11B /* list.png in Resources */,
 				BBE4386617E96C0B008AF891 /* Default.png in Resources */,
 				BBE4386817E96C0B008AF891 /* Default@2x.png in Resources */,
+				BBA392A81910B54F009F84A2 /* feed-bridge.jpg in Resources */,
 				BBFAE5B317F8DA5B00E9A11B /* me.png in Resources */,
+				BBA392A01910B48E009F84A2 /* default_profile.png in Resources */,
+				BBA392A71910B54F009F84A2 /* feed-armchair.jpg in Resources */,
+				BBA392AA1910B57B009F84A2 /* bridge.jpg in Resources */,
 				BBE4386A17E96C0B008AF891 /* Default-568h@2x.png in Resources */,
 				BBFAE5B017F8DA5B00E9A11B /* eye.png in Resources */,
 				BBE438B117E96E99008AF891 /* MainStoryboard.storyboard in Resources */,
@@ -409,6 +430,7 @@
 				BBE4386017E96C0B008AF891 /* main.m in Sources */,
 				BBE4386417E96C0B008AF891 /* AppDelegate.m in Sources */,
 				BBE438A417E96C8E008AF891 /* AFHTTPClient.m in Sources */,
+				BBA3929E1910B2CF009F84A2 /* ProfileViewController.m in Sources */,
 				BBE438A517E96C8E008AF891 /* AFHTTPRequestOperation.m in Sources */,
 				BBE438A617E96C8E008AF891 /* AFImageRequestOperation.m in Sources */,
 				BBFAE5A317F8BC5A00E9A11B /* TradeItemDetailTableViewController.m in Sources */,
