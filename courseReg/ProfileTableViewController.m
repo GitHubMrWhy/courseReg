@@ -231,9 +231,10 @@
     
     //upload the image and the title to the web service
     [[API sharedInstance] commandWithParams:[NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                             @"upload",@"command",
+                                             @"photoUpload",@"command",
+                                            [[API sharedInstance].user objectForKey:@"username"],@"username",
                                              UIImageJPEGRepresentation(photo.image,70),@"file",
-                                             @"test", @"title",
+                                             @"profile", @"title",
                                              nil]
                                onCompletion:^(NSDictionary *json) {
                                    if (![json objectForKey:@"error"]) {
@@ -249,10 +250,6 @@
                                        //error, check for expired session and if so - authorize the user
                                        NSString* errorMsg = [json objectForKey:@"error"];
                                        [UIAlertView error:errorMsg];
-                                       
-                                       if ([@"Authorization required" compare:errorMsg]==NSOrderedSame) {
-                                           [self performSegueWithIdentifier:@"ShowLogin" sender:nil];
-                                       }
                                    }
                                }];
 }
