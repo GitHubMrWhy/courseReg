@@ -10,7 +10,7 @@
 
 #define kAPIHost @"http://mingshengxu.com"
 #define kAPIPath @"promos/"
-
+#define imgPath @"img/"
 @implementation API
 
 @synthesize user;
@@ -64,9 +64,10 @@
     [self multipartFormRequestWithMethod:@"POST"
                                     path:kAPIPath
                               parameters:params
-               constructingBodyWithBlock: ^(id formData) {
+               constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
                    //TODO: attach file if needed
                    if (uploadFile) {
+                       printf("uploading file");
                        [formData appendPartWithFileData:uploadFile
                                                    name:@"file"
                                                fileName:@"photo.jpg"
@@ -85,4 +86,11 @@
     
     [operation start];
 }
+
+
+-(NSURL*)urlForImageWithId:(NSNumber*)IdPhoto isThumb:(BOOL)isThumb {
+    NSString* urlString = [NSString stringWithFormat:@"%@/%@upload/%@%@.jpg", kAPIHost, kAPIPath, IdPhoto, (isThumb)?@"-thumb":@""];
+    return [NSURL URLWithString:urlString];
+}
+
 @end

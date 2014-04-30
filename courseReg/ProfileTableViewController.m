@@ -53,17 +53,52 @@
 }
 
 - (IBAction)uploadPhoto:(id)sender {
-    
+
     [[[UIActionSheet alloc] initWithTitle:nil
                                  delegate:self
                         cancelButtonTitle:@"Close"
                    destructiveButtonTitle:nil
-                        otherButtonTitles:@"Take photo", @"Upload From photos", @"logout",nil]
+                        otherButtonTitles:@"Take photo", @"Upload From photos",nil]
      showInView:self.view];
     
     
 }
 
+-(void) loadPhoto {
+    
+    
+    NSMutableDictionary* params =[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                 @"retrievePhoto",@"command",
+                                 @"123", @"username",
+                                  nil];
+
+    //make the call to the web API
+    [[API sharedInstance] commandWithParams:params
+                               onCompletion:^(NSDictionary *json) {
+                                   //handle the response
+                                   //result returned
+                                   NSDictionary* res = [[json objectForKey:@"result"] objectAtIndex:0];
+                                   if ([json objectForKey:@"error"]==nil && [[res objectForKey:@"userID"] intValue] > 0) {
+                                       //success
+                                       [[API sharedInstance] setUser: res];
+                                       //show message to the user
+                                       
+                                       
+                                       [self performSegueWithIdentifier:@"RegisterToMain"sender:self];
+                                       [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+                                       
+                                   } else {
+                                       //error
+                                       UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"My Error" message: [json objectForKey:@"error"] delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
+                                       [alertView show];
+                                       
+                                       
+                                   }
+                                   
+                               }];
+
+    
+}
 #pragma mark - Table view data source
 /*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -145,7 +180,7 @@
         case 0:
             [self takePhoto]; break;
         case 1:
-            [self uploadPhoto]; break;
+            [self pickPhoto]; break;
         case 2:
             [self logout]; break;
     }
@@ -165,6 +200,15 @@
     [self presentModalViewController:imagePickerController animated:YES];
 }
 
+-(void) pickPhoto{
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePickerController.editing = YES;
+    imagePickerController.delegate = (id)self;
+
+    [self presentModalViewController:imagePickerController animated:YES];
+
+}
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 	UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     // Resize the image from the camera
@@ -174,6 +218,8 @@
     // Show the photo on the screen*/
     photo.image = image;
     [picker dismissModalViewControllerAnimated:NO];
+    [self uploadPhoto];
+
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -182,11 +228,12 @@
 
 
 -(void)uploadPhoto {
+    
     //upload the image and the title to the web service
     [[API sharedInstance] commandWithParams:[NSMutableDictionary dictionaryWithObjectsAndKeys:
                                              @"upload",@"command",
                                              UIImageJPEGRepresentation(photo.image,70),@"file",
-                                             @"MyPhoto", @"title",
+                                             @"test", @"title",
                                              nil]
                                onCompletion:^(NSDictionary *json) {
                                    if (![json objectForKey:@"error"]) {
@@ -209,5 +256,33 @@
                                    }
                                }];
 }
+
+/*
+-(void)uploadPhoto
+{
+    NSData *imageData = UIImageJPEGRepresentation(photo.image,70);
+    
+    NSString *urlString = [ NSString stringWithFormat:@"http://mingshengxu.com/img"];
+    
+    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autoContentAccessingProxy];
+    [request setURL:[NSURL URLWithString:urlString]];
+    [request setHTTPMethod:@"POST"];
+    
+    NSString *boundary = [NSString stringWithString:@"---------------------------14737809831466499882746641449"];
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
+    [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
+    
+    NSMutableData *body = [NSMutableData data];
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithString:[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"userfile\"; filename=\"%@\"\r\n", 1]] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithString:@"Content-Type: application/octet-stream\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[NSData dataWithData:imageData]];
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setHTTPBody:body];
+    
+    [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+}
+*/
+
 
 @end

@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProfileTableViewController : UITableViewController<UIImagePickerControllerDelegate, UIActionSheetDelegate, UITextFieldDelegate>
+@interface ProfileTableViewController : UITableViewController<UIImagePickerControllerDelegate, UIActionSheetDelegate>
 {
     IBOutlet UIImageView* photo;
-}
+    IBOutlet UIButton* button;
 
+}
 @property (strong, nonatomic) IBOutlet UIButton *logout_Button;
 - (IBAction)logoutButton_press:(UIButton *)sender;
 - (IBAction)uploadPhoto:(id)sender;

@@ -361,13 +361,13 @@
                                     </tableViewCellContentView>
                                 </tableViewCell>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fv-Dq-Fya">
-                                    <rect key="frame" x="200" y="91" width="48" height="30"/>
+                                    <rect key="frame" x="46" y="129" width="48" height="25"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="upload">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
-                                        <action selector="uploadPhoto:" destination="AWt-lr-8uL" eventType="touchUpInside" id="QVJ-vN-w90"/>
+                                        <action selector="uploadPhoto:" destination="AWt-lr-8uL" eventType="touchUpInside" id="d0V-ph-EV1"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -451,6 +451,7 @@
                     <navigationItem key="navigationItem" title="Title" id="GjS-KI-sRL"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="button" destination="2fv-Dq-Fya" id="72o-4K-kKC"/>
                         <outlet property="logout_Button" destination="DC4-Cl-4gh" id="MUh-lj-2NS"/>
                         <outlet property="photo" destination="dkX-Ni-k8k" id="psE-X9-GY9"/>
                     </connections>
