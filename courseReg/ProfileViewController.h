@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProfileViewController : UIViewController<UIImagePickerControllerDelegate, UIActionSheetDelegate>
+@interface ProfileViewController : UIViewController<UIImagePickerControllerDelegate, UIActionSheetDelegate,UITextFieldDelegate>
 
+{
+    UIScrollView* scrollView;
+    UITapGestureRecognizer *singleFingerOne;
+    UITapGestureRecognizer *dismissKeyboard;
+}
+- (IBAction)updateBio:(UITextField *)sender;
 
 @property (nonatomic, weak) IBOutlet UIImageView* profileBgImageView;
 
@@ -20,11 +26,14 @@
 
 @property (nonatomic, weak) IBOutlet UIView* overlayView;
 
-@property (nonatomic, weak) IBOutlet UIScrollView* scrollView;
+@property (nonatomic, strong) IBOutlet UIScrollView* scrollView;
 
-@property (nonatomic, weak) IBOutlet UILabel* bioLabel;
+@property (strong, nonatomic) IBOutlet UITextField *bioTextField;
+
 
 @property (nonatomic, weak) IBOutlet UILabel* collegeLable;
+
+@property (nonatomic, weak) IBOutlet UILabel* yearLable;
 
 @property (nonatomic, weak) IBOutlet UIView* bioContainer;
 
