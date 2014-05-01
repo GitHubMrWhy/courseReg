@@ -19,6 +19,8 @@
 @synthesize nsjson;
 @synthesize array;
 
+UIRefreshControl *refreshControl;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -39,7 +41,19 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self showTradeList];
+   
+    // Refresh
+    // 创建UIRefreshControl实例
+    refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh"];
+    
+    // 设置下拉事件的响应方法
+    [refreshControl addTarget:self
+                       action:@selector(refreshTableView:)
+             forControlEvents:UIControlEventValueChanged];
+    // 赋值给UITableViewController
+    [self.tableView addSubview:refreshControl];
+     [self showTradeList];
 
 }
 -(void)showTradeList{
@@ -55,7 +69,7 @@
                                    //result returned
                                    NSDictionary* res = [[json objectForKey:@"result"] objectAtIndex:0];
                                    //NSLog(@"res is %@", res);
-                                   // NSLog(@"json is %@", json);
+                                   NSLog(@"json is %@", json);
                                    self.nsjson=json;
                                    //if successful, i can have a look inside parsedJSON - its worked as an NSdictionary and NSArray
                                    
@@ -75,6 +89,29 @@
 
 
 }
+
+-(void) refreshTableView:(UIRefreshControl *) controller
+{
+    if (controller.refreshing) {
+        controller.attributedTitle = [[NSAttributedString alloc]initWithString:@"Loading..."];
+        //添加新的模拟数据
+        //NSLog(@"下拉刷新请求");
+        //模拟请求完成之后，回调方法callBackMethod
+        [self performSelector:@selector(callBackMethod) withObject:nil afterDelay:0];
+    }
+    
+}
+
+-(void)callBackMethod
+
+{
+    [self showTradeList];
+    [self.tableView reloadData];
+    [refreshControl endRefreshing];
+    refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"Pull to refresh"];
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

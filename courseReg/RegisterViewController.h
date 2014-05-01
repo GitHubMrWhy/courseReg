@@ -28,8 +28,6 @@
 
 
 
-
-
 @property (strong, nonatomic) IBOutlet UIPickerView *college_PickerView;
 @property (strong, nonatomic) IBOutlet UIPickerView *year_PickerView;
 

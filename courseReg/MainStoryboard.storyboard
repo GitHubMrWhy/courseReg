@@ -84,8 +84,9 @@
                                 <rect key="frame" x="0.0" y="18" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Title" id="TMy-fi-JOm">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="yPL-Wn-qhr">
+                                    <navigationItem title="Register" id="TMy-fi-JOm">
+                                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="yPL-Wn-qhr">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="cancel_Button:" destination="amZ-ew-jP6" id="gxr-Hd-PDL"/>
                                             </connections>
@@ -182,7 +183,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="MainNavigationBar" destination="fdr-Y3-Qxl" id="RUr-0k-8hw"/>
                         <outlet property="bioContainer" destination="JjI-XI-kdQ" id="kbn-wJ-0bD"/>
+                        <outlet property="cancelBarButtonItem" destination="yPL-Wn-qhr" id="OoX-nm-GqA"/>
                         <outlet property="college_TextField" destination="fCF-bI-xDu" id="xyO-nH-itI"/>
                         <outlet property="email_TextField" destination="hCH-tr-oNw" id="hCf-pG-rmD"/>
                         <outlet property="functionContainer" destination="XtZ-ZU-wnW" id="sR3-VP-Yaq"/>
@@ -238,8 +241,11 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="Course List" id="0EU-Wv-Rac">
-                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="9Hb-3N-R5w"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="9Hb-3N-R5w">
+                            <color key="tintColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="tuE-51-7Hf">
+                            <color key="tintColor" red="0.99215692280000001" green="0.99607849120000003" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
                             <connections>
                                 <action selector="addCourseItem_Press:" destination="mFI-hN-D2S" id="cgK-FA-cMX"/>
                             </connections>
@@ -250,7 +256,7 @@
             </objects>
             <point key="canvasLocation" x="1210" y="-671"/>
         </scene>
-        <!--Trade Table View Controller - Course Trade Forum-->
+        <!--Trade Table View Controller - Course Trade-->
         <scene sceneID="ARB-lP-I9r">
             <objects>
                 <tableViewController id="0vM-77-qmx" customClass="TradeTableViewController" sceneMemberID="viewController">
@@ -264,8 +270,10 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Course Trade Forum" id="1hT-cy-zkh">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="TNB-c5-OHo"/>
+                    <navigationItem key="navigationItem" title="Course Trade" id="1hT-cy-zkh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="TNB-c5-OHo">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="RGN-Ti-HWU" kind="push" identifier="TradeListToTradeItemDetail" id="caz-ww-tva"/>
@@ -450,10 +458,10 @@
             </objects>
             <point key="canvasLocation" x="832" y="844"/>
         </scene>
-        <!--Navigation Controller - Trade List-->
+        <!--Main Navigation View Controller - Trade List-->
         <scene sceneID="PY4-Nr-aXc">
             <objects>
-                <navigationController definesPresentationContext="YES" id="Epf-pT-G7N" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="Epf-pT-G7N" customClass="MainNavigationViewController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Trade List" image="list-star-7.png" id="hFB-hA-po0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vpy-lM-Dra">
                         <autoresizingMask key="autoresizingMask"/>
@@ -466,10 +474,10 @@
             </objects>
             <point key="canvasLocation" x="820" y="54"/>
         </scene>
-        <!--Navigation Controller - Course List-->
+        <!--Main Navigation View Controller - Course List-->
         <scene sceneID="2zc-i6-oU5">
             <objects>
-                <navigationController definesPresentationContext="YES" id="Fg8-L7-TAC" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="Fg8-L7-TAC" customClass="MainNavigationViewController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Course List" image="album-7.png" id="0At-5z-43L"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="H6t-Po-L0q">
                         <autoresizingMask key="autoresizingMask"/>

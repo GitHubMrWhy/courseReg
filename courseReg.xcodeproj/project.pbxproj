@@ -77,6 +77,7 @@
 		BBA393531910E426009F84A2 /* upward-arrow-7.png in Resources */ = {isa = PBXBuildFile; fileRef = BBA393211910E426009F84A2 /* upward-arrow-7.png */; };
 		BBA393541910E426009F84A2 /* video-player-7.png in Resources */ = {isa = PBXBuildFile; fileRef = BBA393221910E426009F84A2 /* video-player-7.png */; };
 		BBA393551910E426009F84A2 /* write-7.png in Resources */ = {isa = PBXBuildFile; fileRef = BBA393231910E426009F84A2 /* write-7.png */; };
+		BBB6574D1911ECD2002F3CBC /* MainNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB6574C1911ECD2002F3CBC /* MainNavigationViewController.m */; };
 		BBC6DE7B17F69366008BA507 /* CourseListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC6DE7A17F69366008BA507 /* CourseListTableViewController.m */; };
 		BBE4385417E96C0B008AF891 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE4385317E96C0B008AF891 /* UIKit.framework */; };
 		BBE4385617E96C0B008AF891 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE4385517E96C0B008AF891 /* Foundation.framework */; };
@@ -197,6 +198,8 @@
 		BBA393211910E426009F84A2 /* upward-arrow-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upward-arrow-7.png"; sourceTree = "<group>"; };
 		BBA393221910E426009F84A2 /* video-player-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video-player-7.png"; sourceTree = "<group>"; };
 		BBA393231910E426009F84A2 /* write-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "write-7.png"; sourceTree = "<group>"; };
+		BBB6574B1911ECD2002F3CBC /* MainNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationViewController.h; sourceTree = "<group>"; };
+		BBB6574C1911ECD2002F3CBC /* MainNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationViewController.m; sourceTree = "<group>"; };
 		BBC6DE7917F69366008BA507 /* CourseListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseListTableViewController.h; sourceTree = "<group>"; };
 		BBC6DE7A17F69366008BA507 /* CourseListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseListTableViewController.m; sourceTree = "<group>"; };
 		BBE4385017E96C0B008AF891 /* courseReg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = courseReg.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -415,6 +418,8 @@
 				BB399FAF17EF547F00217E89 /* TradeTableViewController.m */,
 				BBF4AE8B17EBB8340066BB61 /* RegisterViewController.h */,
 				BBF4AE8C17EBB8340066BB61 /* RegisterViewController.m */,
+				BBB6574B1911ECD2002F3CBC /* MainNavigationViewController.h */,
+				BBB6574C1911ECD2002F3CBC /* MainNavigationViewController.m */,
 				BB22EF7717E98C4C0041D720 /* LoginScreenViewController.h */,
 				BB22EF7817E98C4C0041D720 /* LoginScreenViewController.m */,
 				BBE438AE17E96CED008AF891 /* API.m */,
@@ -672,6 +677,7 @@
 				BBE438A617E96C8E008AF891 /* AFImageRequestOperation.m in Sources */,
 				BBFAE5A317F8BC5A00E9A11B /* TradeItemDetailTableViewController.m in Sources */,
 				BBE438A717E96C8E008AF891 /* AFJSONRequestOperation.m in Sources */,
+				BBB6574D1911ECD2002F3CBC /* MainNavigationViewController.m in Sources */,
 				BBE438A817E96C8E008AF891 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				BFB3AD44190DC129004EF20A /* UIAlertView+error.m in Sources */,
 				BBE438A917E96C8E008AF891 /* AFPropertyListRequestOperation.m in Sources */,

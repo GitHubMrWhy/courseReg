@@ -51,6 +51,8 @@
     NSString* fontName = @"Optima-Italic";
     NSString* boldFontName = @"Optima-ExtraBlack";
     
+    [self styleNavigationBarWithFontName:boldFontName];
+    
     self.realName_TextField.textColor =  mainColor;
      self.realName_TextField.font =  [UIFont fontWithName:fontName size:14.0f];
     self.realName_TextField.delegate = self;
@@ -95,19 +97,13 @@
     self.profileImageView.userInteractionEnabled = YES;
     [ self.profileImageView addGestureRecognizer:singleFingerOne];
     
-    
-
     self.scrollView.directionalLockEnabled = YES;
     self.scrollView.pagingEnabled = YES;
     self.scrollView.scrollEnabled=YES;
-    
     self.scrollView.delegate = self;
-
-    
     self.bioContainer.layer.borderColor = [UIColor colorWithWhite:0.9 alpha:0.7].CGColor;
     self.bioContainer.layer.borderWidth = 1.0f;
-    
-    
+
     self.functionContainer.layer.borderColor = [UIColor colorWithWhite:0.9 alpha:0.7].CGColor;
     self.functionContainer.layer.borderWidth = 1.0f;
     
@@ -121,14 +117,50 @@
     [self.signup_Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.signup_Button setTitleColor:[UIColor colorWithWhite:1.0f alpha:0.5f] forState:UIControlStateHighlighted];
 
-   
-    
-    
     // Create done button in UIPickerView
 
-   
-    
 }
+-(void)styleNavigationBarWithFontName:(NSString*)navigationTitleFont{
+    
+    
+    CGSize size = CGSizeMake(320, 44);
+    UIColor* color = [UIColor colorWithRed:50.0/255 green:102.0/255 blue:147.0/255 alpha:1.0f];
+    
+    UIGraphicsBeginImageContext(size);
+    CGContextRef currentContext = UIGraphicsGetCurrentContext();
+    CGRect fillRect = CGRectMake(0,0,size.width,size.height);
+    CGContextSetFillColorWithColor(currentContext, color.CGColor);
+    CGContextFillRect(currentContext, fillRect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    
+    UINavigationBar* navAppearance = [UINavigationBar appearance];
+    
+    
+    [navAppearance setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    
+    [navAppearance setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                           [UIColor whiteColor], UITextAttributeTextColor,
+                                           [UIFont fontWithName:navigationTitleFont size:18.0f], UITextAttributeFont, [NSValue valueWithCGSize:CGSizeMake(0.0, 0.0)], UITextAttributeTextShadowOffset,
+                                           nil]];
+    //UIImageView* searchView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"search.png"]];
+    //searchView.frame = CGRectMake(0, 0, 20, 20);
+    
+    //UIBarButtonItem* searchItem = [[UIBarButtonItem alloc] initWithCustomView:searchView];
+    
+    // self.navigationItem.rightBarButtonItem = searchItem;
+ 
+    
+    //UIImageView* menuView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"menu.png"]];
+    //menuView.frame = CGRectMake(0, 0, 28, 20);
+    
+    // UIBarButtonItem* menuItem = [[UIBarButtonItem alloc] initWithCustomView:menuView];
+    
+    //self.navigationItem.leftBarButtonItem = menuItem;
+}
+
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 
@@ -317,75 +349,120 @@
 
 - (IBAction)signup_Button:(UIButton *)sender {
     NSLog(@"%d",gender_SegmentedControl.selectedSegmentIndex);
+    
+     NSLog(@"%@",year_TextField.text);
+    NSLog(@"%@",college_TextField.text);
     NSString* command = @"register";
-    [self checkVaildInput];
+    BOOL result;
+	
+	result = [self checkVaildInput];
+    if (result == TRUE) {
+		
+	NSLog(@"true");
+    
         NSMutableDictionary* params =[NSMutableDictionary dictionaryWithObjectsAndKeys:
                                   command, @"command",
                                   username_TextField.text, @"username",
                                    realName_TextField.text,@"fullName",
                                   password_TextField.text, @"password",
                                   email_TextField.text,@"email",
-                                      nil,@"bio",
                                   year_TextField.text, @"year",
                                   college_TextField.text, @"college",
                                   [NSNumber numberWithInteger:gender_SegmentedControl.selectedSegmentIndex],@"gender",
+                                UIImageJPEGRepresentation(profileImageView.image,250),@"file",
+                                       nil,@"bio",
                                   nil];
-    //make the call to the web API
-    [[API sharedInstance] commandWithParams:params
-                               onCompletion:^(NSDictionary *json) {
-                                   //handle the response
-                                   //result returned
-                                   NSDictionary* res = [[json objectForKey:@"result"] objectAtIndex:0];
-                                   if ([json objectForKey:@"error"]==nil && [[res objectForKey:@"userID"] intValue] > 0) {
-                                       //success
-                                        [[API sharedInstance] setUser: res];
-                                       [self uploadPhoto];
+        NSLog(@"%@",params);
 
-                                                                             //show message to the user
-                                       
-                                       
-                                       [self performSegueWithIdentifier:@"RegisterToMain"sender:self];
-                                       [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        //make the call to the web API
+        [[API sharedInstance] commandWithParams:params
+                                   onCompletion:^(NSDictionary *json) {
+                                       //handle the response
+                                       //result returned
+                                       NSDictionary* res = [[json objectForKey:@"result"] objectAtIndex:0];
+                                       if ([json objectForKey:@"error"]==nil && [[res objectForKey:@"userID"] intValue] > 0) {
+                                           //success
+                                           [[API sharedInstance] setUser: res];
+                                           
+                                           //show message to the user
+                                           username_TextField.text=@"",
+                                           realName_TextField.text=@"",
+                                           password_TextField.text= @"",
+                                           email_TextField.text=@"",
+                                           year_TextField.text=@"",
+                                           college_TextField.text=@"",
+                                           self.profileImageView.image = [UIImage imageNamed:@"default_profile.png"];
 
-                                   } else {
-                                       //error
-                                       UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"My Error" message: [json objectForKey:@"error"] delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
-                                       [alertView show];
+                                          
+                                           [self performSegueWithIdentifier:@"RegisterToMain"sender:self];
+                                           
+                                            } else {
+                                           //error
+                                           UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"My Error" message: [json objectForKey:@"error"] delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
+                                           [alertView show];
+                                           
+                                           
+                                       }
                                        
-                                       
-                                   }
-                                   
-                               }];
+                                   }];
+        
 
+        
+    } else {
+		NSLog(@"false");
+	}
+
+   
 }
--(void)checkVaildInput{
+-(BOOL)checkVaildInput{
     if ([username_TextField.text isEqualToString:@""]) {
         UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"Error" message: @"Please fill the User Name" delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
         [alertView show];
-        
+           return NO;
     }
-    if (password_TextField.text.length >40) {
+    else if (password_TextField.text.length >40) {
         UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"Error" message: @"User Name too long" delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
         [alertView show];
-        
+           return NO;
     }
-    if ([realName_TextField.text isEqualToString:@""]) {
+    else if ([realName_TextField.text isEqualToString:@""]) {
         UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"Error" message: @"Please fill the Real Name" delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
         [alertView show];
-        
+           return NO;
     }
-    if (password_TextField.text.length < 6 ) {
+    else if (password_TextField.text.length < 6 ) {
         UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"Error" message: @"Password need at least 6 Charaters" delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
         [alertView show];
+           return NO;
         
     }
-    if (password_TextField.text.length >=12 ) {
+    else if (password_TextField.text.length >=12 ) {
         UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"Error" message: @"Password too long" delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
         [alertView show];
+        return NO;
+    }
+    else if (email_TextField.text.length==0){
+        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"Error" message: @"Please fill the Email" delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
+        [alertView show];
+        return NO;
         
+    }else if (email_TextField.text.length>0){
+       
+        NSString *expression = @"^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$"; // Edited: added ^ and $
+        NSError *error = NULL;
+        
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:expression options:NSRegularExpressionCaseInsensitive error:&error];
+        
+        NSTextCheckingResult *match = [regex firstMatchInString:email_TextField.text options:0 range:NSMakeRange(0, email_TextField.text.length)];
+        
+        if (!match){
+            UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"Error" message: @"This is not a valid email address" delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
+            [alertView show];
+            return NO;
+        }
     }
 
-
+    return YES;
     
 }
 
@@ -436,11 +513,11 @@
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissModalViewControllerAnimated:NO];
+    
 }
 
 
--(void)uploadPhoto {
-    
+-(BOOL)uploadPhoto {
     //upload the image and the title to the web service
     [[API sharedInstance] commandWithParams:[NSMutableDictionary dictionaryWithObjectsAndKeys:
                                              @"photoUpload",@"command",
@@ -448,22 +525,20 @@
                                              UIImageJPEGRepresentation(profileImageView.image,250),@"file",
                                              @"profile", @"title",
                                              nil]
-                               onCompletion:^(NSDictionary *json) {
-                                   if (![json objectForKey:@"error"]) {
+                               onCompletion:^(NSDictionary *photoJson) {
+                                   if (![photoJson objectForKey:@"error"]) {
                                        
-                                       //success
-                                       [[[UIAlertView alloc]initWithTitle:@"Success!"
-                                                                  message:@"Your photo is uploaded"
-                                                                 delegate:nil
-                                                        cancelButtonTitle:@"OK"
-                                                        otherButtonTitles: nil] show];
+                                       
                                        
                                    } else {
                                        //error, check for expired session and if so - authorize the user
-                                       NSString* errorMsg = [json objectForKey:@"error"];
+                                       NSString* errorMsg = [photoJson objectForKey:@"error"];
                                        [UIAlertView error:errorMsg];
+                                       
+                                       
                                    }
                                }];
-}
+
+   }
 
 @end
