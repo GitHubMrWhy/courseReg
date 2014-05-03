@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		BB22EF7917E98C4C0041D720 /* LoginScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB22EF7817E98C4C0041D720 /* LoginScreenViewController.m */; };
 		BB399FB017EF547F00217E89 /* TradeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB399FAF17EF547F00217E89 /* TradeTableViewController.m */; };
+		BB9B88911912EC67007401F2 /* TradeItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9B88901912EC67007401F2 /* TradeItemTableViewCell.m */; };
+		BB9B889419131FC5007401F2 /* NewTradeItemTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9B889319131FC5007401F2 /* NewTradeItemTableViewController.m */; };
+		BB9B88A419136DAB007401F2 /* SelectCourseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9B88A319136DAB007401F2 /* SelectCourseTableViewController.m */; };
 		BBA3929E1910B2CF009F84A2 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA3929D1910B2CF009F84A2 /* ProfileViewController.m */; };
 		BBA392B01910DC53009F84A2 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA392AF1910DC53009F84A2 /* MainTabBarController.m */; };
 		BBA392E11910E0E9009F84A2 /* account.png in Resources */ = {isa = PBXBuildFile; fileRef = BBA392D11910E0E9009F84A2 /* account.png */; };
@@ -128,6 +131,12 @@
 		BB22EF7817E98C4C0041D720 /* LoginScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginScreenViewController.m; sourceTree = "<group>"; };
 		BB399FAE17EF547F00217E89 /* TradeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeTableViewController.h; sourceTree = "<group>"; };
 		BB399FAF17EF547F00217E89 /* TradeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeTableViewController.m; sourceTree = "<group>"; };
+		BB9B888F1912EC67007401F2 /* TradeItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeItemTableViewCell.h; sourceTree = "<group>"; };
+		BB9B88901912EC67007401F2 /* TradeItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeItemTableViewCell.m; sourceTree = "<group>"; };
+		BB9B889219131FC5007401F2 /* NewTradeItemTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTradeItemTableViewController.h; sourceTree = "<group>"; };
+		BB9B889319131FC5007401F2 /* NewTradeItemTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTradeItemTableViewController.m; sourceTree = "<group>"; };
+		BB9B88A219136DAB007401F2 /* SelectCourseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectCourseTableViewController.h; path = ../SelectCourseTableViewController.h; sourceTree = "<group>"; };
+		BB9B88A319136DAB007401F2 /* SelectCourseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectCourseTableViewController.m; path = ../SelectCourseTableViewController.m; sourceTree = "<group>"; };
 		BBA3929C1910B2CF009F84A2 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		BBA3929D1910B2CF009F84A2 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		BBA392AE1910DC53009F84A2 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
@@ -402,10 +411,16 @@
 		BBE4385917E96C0B008AF891 /* courseReg */ = {
 			isa = PBXGroup;
 			children = (
+				BB9B88A219136DAB007401F2 /* SelectCourseTableViewController.h */,
+				BB9B88A319136DAB007401F2 /* SelectCourseTableViewController.m */,
+				BB9B888F1912EC67007401F2 /* TradeItemTableViewCell.h */,
+				BB9B88901912EC67007401F2 /* TradeItemTableViewCell.m */,
 				BFB3AD42190DC129004EF20A /* UIAlertView+error.h */,
 				BFB3AD43190DC129004EF20A /* UIAlertView+error.m */,
 				BBE438AD17E96CED008AF891 /* API.h */,
 				BBE438B017E96E99008AF891 /* MainStoryboard.storyboard */,
+				BB9B889219131FC5007401F2 /* NewTradeItemTableViewController.h */,
+				BB9B889319131FC5007401F2 /* NewTradeItemTableViewController.m */,
 				BBA392AE1910DC53009F84A2 /* MainTabBarController.h */,
 				BBA392AF1910DC53009F84A2 /* MainTabBarController.m */,
 				BBA3929C1910B2CF009F84A2 /* ProfileViewController.h */,
@@ -671,12 +686,15 @@
 				BBE4386017E96C0B008AF891 /* main.m in Sources */,
 				BBE4386417E96C0B008AF891 /* AppDelegate.m in Sources */,
 				BBE438A417E96C8E008AF891 /* AFHTTPClient.m in Sources */,
+				BB9B889419131FC5007401F2 /* NewTradeItemTableViewController.m in Sources */,
 				BBA3929E1910B2CF009F84A2 /* ProfileViewController.m in Sources */,
 				BBE438A517E96C8E008AF891 /* AFHTTPRequestOperation.m in Sources */,
+				BB9B88911912EC67007401F2 /* TradeItemTableViewCell.m in Sources */,
 				BBA392B01910DC53009F84A2 /* MainTabBarController.m in Sources */,
 				BBE438A617E96C8E008AF891 /* AFImageRequestOperation.m in Sources */,
 				BBFAE5A317F8BC5A00E9A11B /* TradeItemDetailTableViewController.m in Sources */,
 				BBE438A717E96C8E008AF891 /* AFJSONRequestOperation.m in Sources */,
+				BB9B88A419136DAB007401F2 /* SelectCourseTableViewController.m in Sources */,
 				BBB6574D1911ECD2002F3CBC /* MainNavigationViewController.m in Sources */,
 				BBE438A817E96C8E008AF891 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				BFB3AD44190DC129004EF20A /* UIAlertView+error.m in Sources */,

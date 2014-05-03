@@ -369,8 +369,8 @@
                                   year_TextField.text, @"year",
                                   college_TextField.text, @"college",
                                   [NSNumber numberWithInteger:gender_SegmentedControl.selectedSegmentIndex],@"gender",
-                                UIImageJPEGRepresentation(profileImageView.image,250),@"file",
-                                       nil,@"bio",
+                                UIImageJPEGRepresentation( self.profileImageView.image,250),@"file",
+                                       @"",@"bio",
                                   nil];
         NSLog(@"%@",params);
 
@@ -380,7 +380,7 @@
                                        //handle the response
                                        //result returned
                                        NSDictionary* res = [[json objectForKey:@"result"] objectAtIndex:0];
-                                       if ([json objectForKey:@"error"]==nil && [[res objectForKey:@"userID"] intValue] > 0) {
+                                       if ([json objectForKey:@"error"]==nil && [[res objectForKey:@"userID"] intValue] >= 0) {
                                            //success
                                            [[API sharedInstance] setUser: res];
                                            
@@ -391,10 +391,7 @@
                                            email_TextField.text=@"",
                                            year_TextField.text=@"",
                                            college_TextField.text=@"",
-                                           self.profileImageView.image = [UIImage imageNamed:@"default_profile.png"];
-
-                                          
-                                           [self performSegueWithIdentifier:@"RegisterToMain"sender:self];
+                                            [self performSegueWithIdentifier:@"RegisterToMain"sender:self];
                                            
                                             } else {
                                            //error
@@ -517,28 +514,5 @@
 }
 
 
--(BOOL)uploadPhoto {
-    //upload the image and the title to the web service
-    [[API sharedInstance] commandWithParams:[NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                             @"photoUpload",@"command",
-                                             [[API sharedInstance].user objectForKey:@"username"],@"username",
-                                             UIImageJPEGRepresentation(profileImageView.image,250),@"file",
-                                             @"profile", @"title",
-                                             nil]
-                               onCompletion:^(NSDictionary *photoJson) {
-                                   if (![photoJson objectForKey:@"error"]) {
-                                       
-                                       
-                                       
-                                   } else {
-                                       //error, check for expired session and if so - authorize the user
-                                       NSString* errorMsg = [photoJson objectForKey:@"error"];
-                                       [UIAlertView error:errorMsg];
-                                       
-                                       
-                                   }
-                               }];
-
-   }
 
 @end

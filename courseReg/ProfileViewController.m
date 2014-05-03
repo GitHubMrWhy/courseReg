@@ -55,7 +55,7 @@
     self.bioTextField.textColor =  mainColor;
     self.bioTextField.font =  [UIFont fontWithName:fontName size:14.0f];
     if ([[[API sharedInstance].user objectForKey:@"bio"] isEqualToString:@"" ]) {
-        self.bioTextField.text = @"Please write something about you";
+        self.bioTextField.placeholder = @"Please write something about you";
 
     }else{
         self.bioTextField.text = [[API sharedInstance].user objectForKey:@"bio"];
@@ -198,7 +198,7 @@
                                            //error, check for expired session and if so - authorize the user
                                            NSString* errorMsg = [json objectForKey:@"error"];
                                            [UIAlertView error:errorMsg];
-                                           self.bioTextField.text=[[API sharedInstance].user objectForKey:@"bio"];
+                                     
                                        }
                                    }];
 
@@ -232,7 +232,7 @@
 -(void) loadPhoto {
     
     NSString *photoURL1 = @"http://www.mingshengxu.com/promos/img/";
-    NSString *photoURL = [NSString stringWithFormat:@"%@%@_profile",photoURL1,[[API sharedInstance].user objectForKey:@"username"]];
+    NSString *photoURL = [NSString stringWithFormat:@"%@%@_profile.jpg",photoURL1,[[API sharedInstance].user objectForKey:@"username"]];
     [profileImageView setImageWithURL:[NSURL URLWithString:photoURL] ];
     
     

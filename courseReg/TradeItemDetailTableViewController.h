@@ -11,12 +11,10 @@
 @interface TradeItemDetailTableViewController : UITableViewController
 
 
-@property (strong, nonatomic)          NSString *crn;
-@property (strong, nonatomic)          NSString *userPost;
-@property (strong, nonatomic)          NSString *courseNum;
-@property (strong, nonatomic) IBOutlet UITableViewCell *courseNum_Cell;
-@property (strong, nonatomic) IBOutlet UITableViewCell *crn_cell;
+@property(strong,nonatomic) NSDictionary *tempDictionary;
+@property(strong,nonatomic) NSDictionary *info;
 
+@property (strong, nonatomic) IBOutlet UITextView *noteTextView;
 
-
+@property (nonatomic, strong) UILabel *lable2;;
 @end
