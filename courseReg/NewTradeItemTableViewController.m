@@ -328,6 +328,7 @@
                                   lable2.text,@"exchange",
                                   [NSNumber numberWithInteger:emailSegmentedControl.selectedSegmentIndex], @"emailPrivacy",
                                   customView.text,@"note",
+                                  [[API sharedInstance].user objectForKey:@"gender"],@"gender",
                                     nil];
     NSLog(@"%@",params);
     

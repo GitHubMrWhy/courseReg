@@ -138,16 +138,30 @@ NSDictionary *njson;
     if (section==0) {
         headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 30)];
         label = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, 200, 20)];
+        if ([[tempDictionary objectForKey:@"gender"] intValue]==0) {
+            label.text = @"He have";
+        }else {
+        label.text = @"She have";
+        }
+    }else if (section==1){
+        headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 30)];
+        label = [[UILabel alloc] initWithFrame:CGRectMake(20, -5, 200, 30)];
+        if ([[tempDictionary objectForKey:@"gender"] intValue]==0) {
+            label.text = @"He want ";
+        }else {
+            label.text = @"She want";
+        }
     }else{
         headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 30)];
         label = [[UILabel alloc] initWithFrame:CGRectMake(20, -5, 200, 30)];
+        label.text = self.sectionHeader[section];
     }
     headerView.backgroundColor = [UIColor clearColor];
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont fontWithName:self.boldFontName size:20.0f];
     label.textColor = self.onColor;
     
-    label.text = self.sectionHeader[section];;
+    
     
     [headerView addSubview:label];
     

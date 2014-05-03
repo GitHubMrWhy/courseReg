@@ -235,29 +235,9 @@ UIRefreshControl *refreshControl;
 #pragma mark - Navigation
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(id)sender
 {
-    NSString* command = @"showInfo";
-    NSString *user = [[[self.nsjson objectForKey:@"result"] objectAtIndex:[self.tableView indexPathForSelectedRow].row] objectForKey:@"username"];
-    NSMutableDictionary* params =[NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                  command, @"command",
-                                  user,@"username",
-                                  nil];
-    //make the call to the web API
-    [[API sharedInstance] commandWithParams:params
-                               onCompletion:^(NSDictionary *json) {
-                                   if ([json objectForKey:@"error"]==nil ) {
-                                       self.passInfo=[[json objectForKey:@"result"] objectAtIndex:0];
-                                       
-                                   } else {
-                                       //error
-                                       UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"My Error" message: [json objectForKey:@"error"] delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
-                                       [alertView show];
-                                       
-                                   }
-                                   
-                               }];
-    
 
-    [self performSegueWithIdentifier:@"TradeListToTradeItemDetail" sender:self];
+
+     [self performSegueWithIdentifier:@"TradeListToTradeItemDetail" sender:self];
 }
 
 // In a story board-based application, you will often want to do a little preparation before navigation
@@ -268,7 +248,7 @@ UIRefreshControl *refreshControl;
     {
          TradeItemDetailTableViewController *transferViewController = segue.destinationViewController;
        transferViewController.tempDictionary =[[self.nsjson objectForKey:@"result"] objectAtIndex:[self.tableView indexPathForSelectedRow].row];
-        transferViewController.info= self.passInfo;
+        
         }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
