@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="scD-lM-iVV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="scD-lM-iVV">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -309,10 +309,13 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+<<<<<<< HEAD
                         <connections>
                             <outlet property="dataSource" destination="0vM-77-qmx" id="WJn-GC-9Cb"/>
                             <outlet property="delegate" destination="0vM-77-qmx" id="4zB-yh-0PH"/>
                         </connections>
+=======
+>>>>>>> FETCH_HEAD
                     </tableView>
                     <navigationItem key="navigationItem" title="Course Trade" id="1hT-cy-zkh">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="TNB-c5-OHo">
@@ -446,7 +449,11 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="zz1-6S-eav">
                                         <rect key="frame" x="0.0" y="99" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
+<<<<<<< HEAD
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zz1-6S-eav" id="a5X-dj-fdv">
+=======
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zz1-6S-eav">
+>>>>>>> FETCH_HEAD
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>

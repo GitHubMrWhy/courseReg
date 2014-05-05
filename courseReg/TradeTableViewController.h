@@ -16,6 +16,12 @@
 
 @property(strong,nonatomic)NSDictionary* passInfo;
 
+<<<<<<< HEAD
+=======
+@property(strong,nonatomic)NSDictionary* passInfo;
+
+
+>>>>>>> FETCH_HEAD
 - (IBAction)addTradeItem_Press:(id)sender;
 
 @end
