@@ -125,12 +125,24 @@ UIRefreshControl *refreshControl;
     //读取 remaing seat
     static NSString *SimpleTableIdentifier = @"courseCellItemIdentifier";
     
+    
+    
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SimpleTableIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                       reuseIdentifier:SimpleTableIdentifier] ;
         
     }
+    
+    NSString* fontName = @"Optima-Italic";
+    NSString* boldFontName = @"Optima-ExtraBlack";
+    
+    UIColor* mainColor = [UIColor colorWithRed:50.0/255 green:102.0/255 blue:147.0/255 alpha:1.0f];
+    cell.textLabel.textColor =  mainColor;
+    cell.textLabel.font =  [UIFont fontWithName:fontName size:14.0f];
+    
+
   // NSLog(@"%d",[indexPath row]);
     NSDictionary *tempDictionary= [[self.courseListJson objectForKey:@"result"]objectAtIndex:indexPath.row];
     

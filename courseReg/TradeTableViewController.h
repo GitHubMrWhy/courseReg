@@ -10,14 +10,11 @@
 
 @interface TradeTableViewController :  UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
-
-
 @property (strong, nonatomic) NSArray *searchresult;
 @property(strong,nonatomic)NSDictionary *nsjson;
 @property(strong,nonatomic)NSMutableArray *array;
 
 @property(strong,nonatomic)NSDictionary* passInfo;
-
 
 - (IBAction)addTradeItem_Press:(id)sender;
 

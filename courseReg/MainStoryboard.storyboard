@@ -262,12 +262,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="4QQ-oQ-T74">
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="6iy-Kn-YkN">
                             <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
-                                <outlet property="delegate" destination="0vM-77-qmx" id="UGd-u9-rZu"/>
+                                <outlet property="delegate" destination="0vM-77-qmx" id="KR6-Ww-zTa"/>
                             </connections>
                         </searchBar>
                         <prototypes>
@@ -310,8 +310,8 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="0vM-77-qmx" id="Yj1-aw-H2D"/>
-                            <outlet property="delegate" destination="0vM-77-qmx" id="y2n-pz-9SP"/>
+                            <outlet property="dataSource" destination="0vM-77-qmx" id="WJn-GC-9Cb"/>
+                            <outlet property="delegate" destination="0vM-77-qmx" id="4zB-yh-0PH"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Course Trade" id="1hT-cy-zkh">
@@ -323,19 +323,19 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchDisplayController" destination="wTB-yG-8YH" id="Hf2-5L-9Jg"/>
+                        <outlet property="searchDisplayController" destination="PTc-5o-cu5" id="q43-p7-KgE"/>
                         <segue destination="RGN-Ti-HWU" kind="push" identifier="TradeListToTradeItemDetail" id="caz-ww-tva"/>
                         <segue destination="P5I-rs-WFb" kind="push" identifier="TradeListToAddItem" id="2Bq-l0-Ut3"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRp-4e-Lae" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="wTB-yG-8YH">
+                <searchDisplayController id="PTc-5o-cu5">
                     <connections>
-                        <outlet property="delegate" destination="0vM-77-qmx" id="UCN-BD-Aoz"/>
-                        <outlet property="searchBar" destination="4QQ-oQ-T74" id="7Ez-hO-kKr"/>
-                        <outlet property="searchContentsController" destination="0vM-77-qmx" id="byc-YK-awb"/>
-                        <outlet property="searchResultsDataSource" destination="0vM-77-qmx" id="3Zd-0U-rQK"/>
-                        <outlet property="searchResultsDelegate" destination="0vM-77-qmx" id="my1-q8-7v5"/>
+                        <outlet property="delegate" destination="0vM-77-qmx" id="8O8-ov-Kbu"/>
+                        <outlet property="searchBar" destination="6iy-Kn-YkN" id="50N-g4-65d"/>
+                        <outlet property="searchContentsController" destination="0vM-77-qmx" id="8Vi-uY-6fb"/>
+                        <outlet property="searchResultsDataSource" destination="0vM-77-qmx" id="O1t-Oq-wtB"/>
+                        <outlet property="searchResultsDelegate" destination="0vM-77-qmx" id="2n4-wv-qI7"/>
                     </connections>
                 </searchDisplayController>
             </objects>
@@ -446,7 +446,7 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="zz1-6S-eav">
                                         <rect key="frame" x="0.0" y="99" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zz1-6S-eav" id="4Ra-oe-H7T">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zz1-6S-eav" id="a5X-dj-fdv">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
