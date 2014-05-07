@@ -218,7 +218,7 @@ UIRefreshControl *refreshControl;
                                        if ([json objectForKey:@"error"]==nil ) {
                                            //success
                                            self.courseListJson=json;
-
+                                        [self.tableView reloadData];
                                            
                                        } else {
                                            //error
@@ -308,7 +308,6 @@ UIRefreshControl *refreshControl;
                                        onCompletion:^(NSDictionary *json) {
                                            //handle the response
                                            //result returned
-                                           
                                            //NSLog(@"res is %@", res);
                                            //NSLog(@"json is %@", json);
                                           
@@ -316,11 +315,11 @@ UIRefreshControl *refreshControl;
                             
                                            //NSLog(@"res is %@", res);
                                            //NSLog(@"json is %@", json);
-                                           self.courseListJson=json;
-                                           //if successful, i can have a look inside parsedJSON - its worked as an NSdictionary and NSArray
+                                            //if successful, i can have a look inside parsedJSON - its worked as an NSdictionary and NSArray
 
                                            if ([json objectForKey:@"error"]==nil ) {
                                                //success
+                                               self.courseListJson=json;
                                                [self.tableView reloadData];
                                            } else {
                                                //error
