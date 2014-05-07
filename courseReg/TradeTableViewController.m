@@ -12,10 +12,14 @@
 #import "TradeItemTableViewCell.h"
 @interface TradeTableViewController ()
 
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+
 @end
 
 @implementation TradeTableViewController
-@synthesize searchresult;
+<<<<<<< HEAD
+=======
+@synthesize listData;
 
 @synthesize nsjson;
 @synthesize array;
@@ -34,11 +38,26 @@ UIRefreshControl *refreshControl;
     }
     return self;
 }
+>>>>>>> FETCH_HEAD
+>>>>>>> FETCH_HEAD
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    // Refresh
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh"];
+    [refreshControl addTarget:self
+                       action:@selector(refreshTableView:)
+             forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
+    [self.tableView addSubview:refreshControl];
+}
+=======
     
          // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -47,63 +66,104 @@ UIRefreshControl *refreshControl;
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
    
+>>>>>>> FETCH_HEAD
     // Refresh
-    // 创建UIRefreshControl实例
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     refreshControl = [[UIRefreshControl alloc] init];
     refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh"];
-    
-    // 设置下拉事件的响应方法
     [refreshControl addTarget:self
                        action:@selector(refreshTableView:)
              forControlEvents:UIControlEventValueChanged];
-    // 赋值给UITableViewController
+    self.refreshControl = refreshControl;
     [self.tableView addSubview:refreshControl];
-     [self showTradeList];
-    
-}
-- (void) viewWillAppear:(BOOL)animated
-{
-    [self showTradeList];
-    [self.tableView reloadData];
-    
+<<<<<<< HEAD
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+=======
+     [self showTradeList];
+>>>>>>> FETCH_HEAD
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self showTradeList];
+}
+<<<<<<< HEAD
+
+- (void)showTradeList {
+    self.array = [NSMutableArray array];
+    self.searchresult = [NSMutableArray array];
+    
+=======
+- (void) viewWillAppear:(BOOL)animated
+{
+>>>>>>> FETCH_HEAD
+    [self showTradeList];
+}
+
+<<<<<<< HEAD
+- (void)showTradeList {
+    self.array = [NSMutableArray array];
+    self.searchresult = [NSMutableArray array];
+    
+=======
 -(void)showTradeList{
-    
-    
+>>>>>>> FETCH_HEAD
+>>>>>>> FETCH_HEAD
     NSString* command = @"showTradeList";
     NSMutableDictionary* params =[NSMutableDictionary dictionaryWithObjectsAndKeys:
                                   command, @"command",
-                                  
                                   nil];
+    
     //make the call to the web API
     [[API sharedInstance] commandWithParams:params
                                onCompletion:^(NSDictionary *json) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                                   //NSLog(@"res is %@", res);
+                                   //NSLog(@"json is %@", json);
+                                   if ([json objectForKey:@"error"]==nil ) {
+                                       self.nsjson=json;
+                                       self.array = [self.nsjson objectForKey:@"result"];
+                                       self.searchresult = [[NSArray alloc] initWithArray:self.array copyItems:NO];
+=======
                                    //handle the response
                                    //result returned
                                   
+>>>>>>> FETCH_HEAD
                                    //NSLog(@"res is %@", res);
                                    //NSLog(@"json is %@", json);
-                                   
-                                   //if successful, i can have a look inside parsedJSON - its worked as an NSdictionary and NSArray
-                                   
                                    if ([json objectForKey:@"error"]==nil ) {
                                        self.nsjson=json;
+<<<<<<< HEAD
+                                       self.array = [self.nsjson objectForKey:@"result"];
+                                       self.searchresult = [[NSArray alloc] initWithArray:self.array copyItems:NO];
+=======
+>>>>>>> FETCH_HEAD
+>>>>>>> FETCH_HEAD
                                        //success
-                                       [self.tableView reloadData];
                                    } else {
                                        //error
                                        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"My Error" message: [json objectForKey:@"error"] delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
                                        [alertView show];
-                                       
                                    }
-                                   
+                                   if (self.refreshControl.isRefreshing) {
+                                       [self.refreshControl endRefreshing];
+                                       self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"Pull to refresh"];
+                                   }
+                                   [self.tableView reloadData];
                                }];
     
-    array = [self.nsjson objectForKey:@"result"];
-    searchresult = [[NSArray alloc] initWithArray:array copyItems:YES];
+<<<<<<< HEAD
 }
 
+- (void)refreshTableView:(UIRefreshControl *)controller
+=======
+}
+
+<<<<<<< HEAD
+- (void)refreshTableView:(UIRefreshControl *)controller
+=======
 -(void) refreshTableView:(UIRefreshControl *) controller
 {
     if (controller.refreshing) {
@@ -127,9 +187,14 @@ UIRefreshControl *refreshControl;
 
 
 - (void)didReceiveMemoryWarning
+>>>>>>> FETCH_HEAD
+>>>>>>> FETCH_HEAD
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    if (controller.refreshing) {
+        controller.attributedTitle = [[NSAttributedString alloc]initWithString:@"Loading..."];
+        [self showTradeList];
+    }
+    
 }
 
 #pragma mark - Table view data source
@@ -137,8 +202,9 @@ UIRefreshControl *refreshControl;
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
     NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"self.have contains[c] %@", searchText];
-    searchresult = [array filteredArrayUsingPredicate:resultPredicate];
+    self.searchresult = [self.array filteredArrayUsingPredicate:resultPredicate];
 }
+
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
     NSLog(@"imcalled");
@@ -150,39 +216,32 @@ UIRefreshControl *refreshControl;
     return YES;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 1;
-}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     if(tableView == self.searchDisplayController.searchResultsTableView){
-        NSLog(@"!!!!%lu",[searchresult count]);
-        return [searchresult count];
+        NSLog(@"!!!!%lu",[self.searchresult count]);
+        return [self.searchresult count];
     }
     
-    return [array count];
+    return [self.array count];
 }
 
-/*
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-     return [[self.nsjson objectForKey:@"result"]count];
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60;
 }
- */
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TradeItemTableViewCell *cell = (TradeItemTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"TradeItemTableViewCell"];
+<<<<<<< HEAD
+    TradeItemTableViewCell *cell = (TradeItemTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:@"TradeItemTableViewCell"];
     
-    
-    //NSLog(@"%d",[indexPath row]);
-    NSDictionary *tempDictionary= [searchresult objectAtIndex:indexPath.row];
+    NSDictionary *tempDictionary = nil;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        tempDictionary = [self.searchresult objectAtIndex:indexPath.row];
+    } else {
+        tempDictionary = [self.array objectAtIndex:indexPath.row];
+    }
     
     NSString* fontName = @"Optima-Italic";
     NSString* boldFontName = @"Optima-ExtraBlack";
@@ -193,35 +252,26 @@ UIRefreshControl *refreshControl;
     
     cell.haveLabel.textColor =  mainColor;
     cell.haveLabel.font =  [UIFont fontWithName:fontName size:14.0f];
+=======
+<<<<<<< HEAD
+    TradeItemTableViewCell *cell = (TradeItemTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:@"TradeItemTableViewCell"];
+>>>>>>> FETCH_HEAD
     
-    if([[tempDictionary objectForKey:@"have"] isEqualToString:@""]){
-        cell.haveLabel.text =[NSString stringWithFormat:@"%@ have nothing",[tempDictionary objectForKey:@"username"]];
-    }else{
-        cell.haveLabel.text =[NSString stringWithFormat:@"%@ have %@",[tempDictionary objectForKey:@"username"],[tempDictionary objectForKey:@"have"]];
-        
+    NSDictionary *tempDictionary = nil;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        tempDictionary = [self.searchresult objectAtIndex:indexPath.row];
+    } else {
+        tempDictionary = [self.array objectAtIndex:indexPath.row];
     }
-    if([[tempDictionary objectForKey:@"exchange" ] isEqualToString:@""]){
-        cell.exchangeLabel.text =[NSString stringWithFormat:@" to trade nothing"];
-    }else{
-        cell.exchangeLabel.text =[NSString stringWithFormat:@" to trade %@",[tempDictionary objectForKey:@"exchange"]];
-    }
-    NSString *photoURL1 = @"http://www.mingshengxu.com/promos/img/";
-    NSString *photoURL = [NSString stringWithFormat:@"%@%@_profile.jpg",photoURL1,[tempDictionary objectForKey:@"username"]];
-    
-    [cell.profileImageView setImageWithURL:[NSURL URLWithString:photoURL] ];
-    cell.accessoryType =   UITableViewCellAccessoryDisclosureIndicator;
-    // Configure the cell...
-    
-    return cell;
-}
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+<<<<<<< HEAD
+=======
+=======
        TradeItemTableViewCell *cell = (TradeItemTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"TradeItemTableViewCell"];
  
    
                //NSLog(@"%d",[indexPath row]);
     NSDictionary *tempDictionary= [[self.nsjson objectForKey:@"result"]objectAtIndex:indexPath.row];
+>>>>>>> FETCH_HEAD
     
     NSString* fontName = @"Optima-Italic";
     NSString* boldFontName = @"Optima-ExtraBlack";
@@ -232,9 +282,15 @@ UIRefreshControl *refreshControl;
     
     cell.haveLabel.textColor =  mainColor;
     cell.haveLabel.font =  [UIFont fontWithName:fontName size:14.0f];
+<<<<<<< HEAD
+    
+    if([[tempDictionary objectForKey:@"have"] isEqualToString:@""]){
+        cell.haveLabel.text =[NSString stringWithFormat:@"%@ have nothing",[tempDictionary objectForKey:@"username"]];
+=======
 
     if([[tempDictionary objectForKey:@"have"] isEqualToString:@""]){
        cell.haveLabel.text =[NSString stringWithFormat:@"%@ have nothing",[tempDictionary objectForKey:@"username"]];
+>>>>>>> FETCH_HEAD
     }else{
         cell.haveLabel.text =[NSString stringWithFormat:@"%@ have %@",[tempDictionary objectForKey:@"username"],[tempDictionary objectForKey:@"have"]];
         
@@ -242,18 +298,37 @@ UIRefreshControl *refreshControl;
     if([[tempDictionary objectForKey:@"exchange" ] isEqualToString:@""]){
         cell.exchangeLabel.text =[NSString stringWithFormat:@" to trade nothing"];
     }else{
+<<<<<<< HEAD
+        cell.exchangeLabel.text =[NSString stringWithFormat:@" to trade %@",[tempDictionary objectForKey:@"exchange"]];
+=======
        cell.exchangeLabel.text =[NSString stringWithFormat:@" to trade %@",[tempDictionary objectForKey:@"exchange"]];
+>>>>>>> FETCH_HEAD
     }
+>>>>>>> FETCH_HEAD
     NSString *photoURL1 = @"http://www.mingshengxu.com/promos/img/";
     NSString *photoURL = [NSString stringWithFormat:@"%@%@_profile.jpg",photoURL1,[tempDictionary objectForKey:@"username"]];
     
     [cell.profileImageView setImageWithURL:[NSURL URLWithString:photoURL] ];
     cell.accessoryType =   UITableViewCellAccessoryDisclosureIndicator;
-    // Configure the cell...
+<<<<<<< HEAD
     
     return cell;
 }
-*/
+=======
+<<<<<<< HEAD
+=======
+    // Configure the cell...
+>>>>>>> FETCH_HEAD
+    
+    return cell;
+}
+
+<<<<<<< HEAD
+- (IBAction)addTradeItem_Press:(UIBarButtonItem *)sender {
+    
+    [self performSegueWithIdentifier:@"TradeListToAddItem" sender:self];
+}
+=======
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -278,55 +353,63 @@ UIRefreshControl *refreshControl;
     }   
 }
 
+>>>>>>> FETCH_HEAD
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 - (IBAction)addTradeItem_Press:(UIBarButtonItem *)sender {
     
     [self performSegueWithIdentifier:@"TradeListToAddItem" sender:self];
-    
 }
+>>>>>>> FETCH_HEAD
 
 #pragma mark - Navigation
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(id)sender
 {
-
-
-     [self performSegueWithIdentifier:@"TradeListToTradeItemDetail" sender:self];
+    [self performSegueWithIdentifier:@"TradeListToTradeItemDetail" sender:self];
 }
 
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
     if([segue.identifier isEqualToString:@"TradeListToTradeItemDetail"])
     {
+<<<<<<< HEAD
+        TradeItemDetailTableViewController *transferViewController = segue.destinationViewController;
+        transferViewController.tempDictionary =[[self.nsjson objectForKey:@"result"] objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        
+    }
+=======
+<<<<<<< HEAD
+        TradeItemDetailTableViewController *transferViewController = segue.destinationViewController;
+        transferViewController.tempDictionary =[[self.nsjson objectForKey:@"result"] objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        
+    }
+=======
          TradeItemDetailTableViewController *transferViewController = segue.destinationViewController;
        transferViewController.tempDictionary =[[self.nsjson objectForKey:@"result"] objectAtIndex:[self.tableView indexPathForSelectedRow].row];
         
         }
+>>>>>>> FETCH_HEAD
+>>>>>>> FETCH_HEAD
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if([segue.identifier isEqualToString:@"TradeListToAddItem"])
     {
         TradeItemDetailTableViewController *transferViewController = segue.destinationViewController;
-       
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
     }
-
+    
 }
 
 
+=======
+       
+>>>>>>> FETCH_HEAD
+    }
+    
+}
+
+
+>>>>>>> FETCH_HEAD
 @end
