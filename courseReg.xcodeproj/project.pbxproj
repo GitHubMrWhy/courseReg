@@ -11,7 +11,7 @@
 		BB399FB017EF547F00217E89 /* TradeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB399FAF17EF547F00217E89 /* TradeTableViewController.m */; };
 		BB9B88911912EC67007401F2 /* TradeItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9B88901912EC67007401F2 /* TradeItemTableViewCell.m */; };
 		BB9B889419131FC5007401F2 /* NewTradeItemTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9B889319131FC5007401F2 /* NewTradeItemTableViewController.m */; };
-		BBA2BE4A1919DCDD00EC3E79 /* SelectCourseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA2BE491919DCDD00EC3E79 /* SelectCourseTableViewController.m */; };
+		BBA2BE4D1919DDEB00EC3E79 /* SelectCourseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA2BE4C1919DDEB00EC3E79 /* SelectCourseTableViewController.m */; };
 		BBA3929E1910B2CF009F84A2 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA3929D1910B2CF009F84A2 /* ProfileViewController.m */; };
 		BBA392B01910DC53009F84A2 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA392AF1910DC53009F84A2 /* MainTabBarController.m */; };
 		BBA392E11910E0E9009F84A2 /* account.png in Resources */ = {isa = PBXBuildFile; fileRef = BBA392D11910E0E9009F84A2 /* account.png */; };
@@ -135,8 +135,8 @@
 		BB9B88901912EC67007401F2 /* TradeItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeItemTableViewCell.m; sourceTree = "<group>"; };
 		BB9B889219131FC5007401F2 /* NewTradeItemTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTradeItemTableViewController.h; sourceTree = "<group>"; };
 		BB9B889319131FC5007401F2 /* NewTradeItemTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTradeItemTableViewController.m; sourceTree = "<group>"; };
-		BBA2BE481919DCDD00EC3E79 /* SelectCourseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCourseTableViewController.h; sourceTree = "<group>"; };
-		BBA2BE491919DCDD00EC3E79 /* SelectCourseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCourseTableViewController.m; sourceTree = "<group>"; };
+		BBA2BE4B1919DDEB00EC3E79 /* SelectCourseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCourseTableViewController.h; sourceTree = "<group>"; };
+		BBA2BE4C1919DDEB00EC3E79 /* SelectCourseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCourseTableViewController.m; sourceTree = "<group>"; };
 		BBA3929C1910B2CF009F84A2 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		BBA3929D1910B2CF009F84A2 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		BBA392AE1910DC53009F84A2 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
@@ -411,8 +411,8 @@
 		BBE4385917E96C0B008AF891 /* courseReg */ = {
 			isa = PBXGroup;
 			children = (
-				BBA2BE481919DCDD00EC3E79 /* SelectCourseTableViewController.h */,
-				BBA2BE491919DCDD00EC3E79 /* SelectCourseTableViewController.m */,
+				BBA2BE4B1919DDEB00EC3E79 /* SelectCourseTableViewController.h */,
+				BBA2BE4C1919DDEB00EC3E79 /* SelectCourseTableViewController.m */,
 				BB9B888F1912EC67007401F2 /* TradeItemTableViewCell.h */,
 				BB9B88901912EC67007401F2 /* TradeItemTableViewCell.m */,
 				BFB3AD42190DC129004EF20A /* UIAlertView+error.h */,
@@ -691,7 +691,7 @@
 				BBE438A517E96C8E008AF891 /* AFHTTPRequestOperation.m in Sources */,
 				BB9B88911912EC67007401F2 /* TradeItemTableViewCell.m in Sources */,
 				BBA392B01910DC53009F84A2 /* MainTabBarController.m in Sources */,
-				BBA2BE4A1919DCDD00EC3E79 /* SelectCourseTableViewController.m in Sources */,
+				BBA2BE4D1919DDEB00EC3E79 /* SelectCourseTableViewController.m in Sources */,
 				BBE438A617E96C8E008AF891 /* AFImageRequestOperation.m in Sources */,
 				BBFAE5A317F8BC5A00E9A11B /* TradeItemDetailTableViewController.m in Sources */,
 				BBE438A717E96C8E008AF891 /* AFJSONRequestOperation.m in Sources */,

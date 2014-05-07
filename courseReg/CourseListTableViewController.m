@@ -131,6 +131,11 @@ UIRefreshControl *refreshControl;
                                       reuseIdentifier:SimpleTableIdentifier] ;
         
     }
+    NSString* fontName = @"Optima-Italic";
+    UIColor* mainColor = [UIColor colorWithRed:50.0/255 green:102.0/255 blue:147.0/255 alpha:1.0f];
+    cell.textLabel.textColor = mainColor;
+    cell.textLabel.font =  [UIFont fontWithName:fontName size:14.0f];
+
   // NSLog(@"%d",[indexPath row]);
     NSDictionary *tempDictionary= [[self.courseListJson objectForKey:@"result"]objectAtIndex:indexPath.row];
     
