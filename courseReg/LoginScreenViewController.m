@@ -111,8 +111,7 @@
                                    //result returned
                                    
                                    NSDictionary* res = [[json objectForKey:@"result"] objectAtIndex:0];
-                                   NSLog(@"%@",json);
-                                   if ([json objectForKey:@"error"]==nil && [[res objectForKey:@"userID"] intValue] >= 0) {
+                                   if ([json objectForKey:@"error"]==nil && [[res objectForKey:@"userID"] intValue] > 0) {
                                        //success
                                        [[API sharedInstance] setUser: res];
                                        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
