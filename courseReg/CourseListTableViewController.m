@@ -131,11 +131,6 @@ UIRefreshControl *refreshControl;
                                       reuseIdentifier:SimpleTableIdentifier] ;
         
     }
-    NSString* fontName = @"Optima-Italic";
-    UIColor* mainColor = [UIColor colorWithRed:50.0/255 green:102.0/255 blue:147.0/255 alpha:1.0f];
-    cell.textLabel.textColor = mainColor;
-    cell.textLabel.font =  [UIFont fontWithName:fontName size:14.0f];
-
   // NSLog(@"%d",[indexPath row]);
     NSDictionary *tempDictionary= [[self.courseListJson objectForKey:@"result"]objectAtIndex:indexPath.row];
     
@@ -223,7 +218,7 @@ UIRefreshControl *refreshControl;
                                        if ([json objectForKey:@"error"]==nil ) {
                                            //success
                                            self.courseListJson=json;
-                                        [self.tableView reloadData];
+
                                            
                                        } else {
                                            //error
@@ -313,6 +308,7 @@ UIRefreshControl *refreshControl;
                                        onCompletion:^(NSDictionary *json) {
                                            //handle the response
                                            //result returned
+                                           
                                            //NSLog(@"res is %@", res);
                                            //NSLog(@"json is %@", json);
                                           
@@ -320,11 +316,11 @@ UIRefreshControl *refreshControl;
                             
                                            //NSLog(@"res is %@", res);
                                            //NSLog(@"json is %@", json);
-                                            //if successful, i can have a look inside parsedJSON - its worked as an NSdictionary and NSArray
+                                           self.courseListJson=json;
+                                           //if successful, i can have a look inside parsedJSON - its worked as an NSdictionary and NSArray
 
                                            if ([json objectForKey:@"error"]==nil ) {
                                                //success
-                                               self.courseListJson=json;
                                                [self.tableView reloadData];
                                            } else {
                                                //error

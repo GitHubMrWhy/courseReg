@@ -8,14 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TradeTableViewController :  UITableViewController <UITableViewDelegate, UITableViewDataSource>
+@interface TradeTableViewController : UITableViewController
 
-@property (strong, nonatomic) NSArray *searchresult;
+
+@property (strong, nonatomic) NSMutableArray *listData;
 @property(strong,nonatomic)NSDictionary *nsjson;
-@property(strong,nonatomic)NSMutableArray *array;
+@property(strong,nonatomic)NSArray *array;
 
-@property(strong,nonatomic)NSDictionary* passInfo;
-
-- (IBAction)addTradeItem_Press:(id)sender;
 
 @end
