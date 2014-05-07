@@ -88,7 +88,11 @@
             startingLineNumber = "120"
             endingLineNumber = "120"
 <<<<<<< HEAD
+<<<<<<< HEAD
             landmarkName = "-tableView:cellForRowAtIndexPath:"
+=======
+            landmarkName = "-showTradeList"
+>>>>>>> FETCH_HEAD
 =======
             landmarkName = "-showTradeList"
 >>>>>>> FETCH_HEAD

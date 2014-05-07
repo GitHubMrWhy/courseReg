@@ -18,7 +18,10 @@
 
 @implementation TradeTableViewController
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> FETCH_HEAD
 @synthesize listData;
 
 @synthesize nsjson;
@@ -39,14 +42,20 @@ UIRefreshControl *refreshControl;
     return self;
 }
 >>>>>>> FETCH_HEAD
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
+=======
 >>>>>>> FETCH_HEAD
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> FETCH_HEAD
     // Refresh
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     refreshControl = [[UIRefreshControl alloc] init];
@@ -101,10 +110,15 @@ UIRefreshControl *refreshControl;
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (void)showTradeList {
     self.array = [NSMutableArray array];
     self.searchresult = [NSMutableArray array];
     
+=======
+-(void)showTradeList{
+>>>>>>> FETCH_HEAD
+>>>>>>> FETCH_HEAD
 =======
 -(void)showTradeList{
 >>>>>>> FETCH_HEAD
@@ -118,8 +132,11 @@ UIRefreshControl *refreshControl;
     [[API sharedInstance] commandWithParams:params
                                onCompletion:^(NSDictionary *json) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> FETCH_HEAD
                                    //NSLog(@"res is %@", res);
                                    //NSLog(@"json is %@", json);
                                    if ([json objectForKey:@"error"]==nil ) {
@@ -136,8 +153,11 @@ UIRefreshControl *refreshControl;
                                    if ([json objectForKey:@"error"]==nil ) {
                                        self.nsjson=json;
 <<<<<<< HEAD
+<<<<<<< HEAD
                                        self.array = [self.nsjson objectForKey:@"result"];
                                        self.searchresult = [[NSArray alloc] initWithArray:self.array copyItems:NO];
+=======
+>>>>>>> FETCH_HEAD
 =======
 >>>>>>> FETCH_HEAD
 >>>>>>> FETCH_HEAD
@@ -155,12 +175,17 @@ UIRefreshControl *refreshControl;
                                }];
     
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 
 - (void)refreshTableView:(UIRefreshControl *)controller
 =======
 }
 
+=======
+}
+
+>>>>>>> FETCH_HEAD
 <<<<<<< HEAD
 - (void)refreshTableView:(UIRefreshControl *)controller
 =======
@@ -188,6 +213,9 @@ UIRefreshControl *refreshControl;
 
 - (void)didReceiveMemoryWarning
 >>>>>>> FETCH_HEAD
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
+=======
 >>>>>>> FETCH_HEAD
 {
     if (controller.refreshing) {
@@ -235,6 +263,7 @@ UIRefreshControl *refreshControl;
 {
 <<<<<<< HEAD
     TradeItemTableViewCell *cell = (TradeItemTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:@"TradeItemTableViewCell"];
+<<<<<<< HEAD
     
     NSDictionary *tempDictionary = nil;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
@@ -256,6 +285,8 @@ UIRefreshControl *refreshControl;
 <<<<<<< HEAD
     TradeItemTableViewCell *cell = (TradeItemTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:@"TradeItemTableViewCell"];
 >>>>>>> FETCH_HEAD
+=======
+>>>>>>> FETCH_HEAD
     
     NSDictionary *tempDictionary = nil;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
@@ -264,7 +295,10 @@ UIRefreshControl *refreshControl;
         tempDictionary = [self.array objectAtIndex:indexPath.row];
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> FETCH_HEAD
 =======
        TradeItemTableViewCell *cell = (TradeItemTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"TradeItemTableViewCell"];
  
@@ -311,11 +345,14 @@ UIRefreshControl *refreshControl;
     [cell.profileImageView setImageWithURL:[NSURL URLWithString:photoURL] ];
     cell.accessoryType =   UITableViewCellAccessoryDisclosureIndicator;
 <<<<<<< HEAD
+<<<<<<< HEAD
     
     return cell;
 }
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> FETCH_HEAD
 =======
     // Configure the cell...
 >>>>>>> FETCH_HEAD
@@ -379,16 +416,22 @@ UIRefreshControl *refreshControl;
     }
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
         TradeItemDetailTableViewController *transferViewController = segue.destinationViewController;
         transferViewController.tempDictionary =[[self.nsjson objectForKey:@"result"] objectAtIndex:[self.tableView indexPathForSelectedRow].row];
         
     }
 =======
+=======
+>>>>>>> FETCH_HEAD
          TradeItemDetailTableViewController *transferViewController = segue.destinationViewController;
        transferViewController.tempDictionary =[[self.nsjson objectForKey:@"result"] objectAtIndex:[self.tableView indexPathForSelectedRow].row];
         
         }
 >>>>>>> FETCH_HEAD
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
+=======
 >>>>>>> FETCH_HEAD
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
@@ -396,8 +439,18 @@ UIRefreshControl *refreshControl;
     {
         TradeItemDetailTableViewController *transferViewController = segue.destinationViewController;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+    }
+    
+}
+
+
+=======
+       
+>>>>>>> FETCH_HEAD
     }
     
 }

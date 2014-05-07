@@ -19,11 +19,17 @@
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> FETCH_HEAD
 @property(strong,nonatomic)NSDictionary* passInfo;
 
 
 >>>>>>> FETCH_HEAD
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
+=======
 >>>>>>> FETCH_HEAD
 - (IBAction)addTradeItem_Press:(id)sender;
 
