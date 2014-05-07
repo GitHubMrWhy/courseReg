@@ -9,6 +9,7 @@
 #import "TradeTableViewController.h"
 #import "API.h"
 #import "TradeItemDetailTableViewController.h"
+#import "TradeItemTableViewCell.h"
 @interface TradeTableViewController ()
 
 @end
@@ -18,6 +19,12 @@
 
 @synthesize nsjson;
 @synthesize array;
+@synthesize passInfo;
+UIAlertView *addAlert;
+UIRefreshControl *refreshControl;
+
+
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -39,9 +46,28 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self showTradeList];
+   
+    // Refresh
+    // 创建UIRefreshControl实例
+    refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh"];
+    
+    // 设置下拉事件的响应方法
+    [refreshControl addTarget:self
+                       action:@selector(refreshTableView:)
+             forControlEvents:UIControlEventValueChanged];
+    // 赋值给UITableViewController
+    [self.tableView addSubview:refreshControl];
+     [self showTradeList];
 
 }
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self showTradeList];
+    [self.tableView reloadData];
+    
+}
+
 -(void)showTradeList{
     NSString* command = @"showTradeList";
     NSMutableDictionary* params =[NSMutableDictionary dictionaryWithObjectsAndKeys:
@@ -53,13 +79,14 @@
                                onCompletion:^(NSDictionary *json) {
                                    //handle the response
                                    //result returned
-                                   NSDictionary* res = [[json objectForKey:@"result"] objectAtIndex:0];
+                                  
                                    //NSLog(@"res is %@", res);
-                                   // NSLog(@"json is %@", json);
-                                   self.nsjson=json;
+                                   //NSLog(@"json is %@", json);
+                                   
                                    //if successful, i can have a look inside parsedJSON - its worked as an NSdictionary and NSArray
                                    
                                    if ([json objectForKey:@"error"]==nil ) {
+                                       self.nsjson=json;
                                        //success
                                        [self.tableView reloadData];
                                    } else {
@@ -75,6 +102,29 @@
 
 
 }
+
+-(void) refreshTableView:(UIRefreshControl *) controller
+{
+    if (controller.refreshing) {
+        controller.attributedTitle = [[NSAttributedString alloc]initWithString:@"Loading..."];
+        //添加新的模拟数据
+        //NSLog(@"下拉刷新请求");
+        //模拟请求完成之后，回调方法callBackMethod
+        [self performSelector:@selector(callBackMethod) withObject:nil afterDelay:0];
+    }
+    
+}
+
+-(void)callBackMethod
+
+{
+    [self showTradeList];
+    [self.tableView reloadData];
+    [refreshControl endRefreshing];
+    refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"Pull to refresh"];
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -99,48 +149,67 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *SimpleTableIdentifier = @"SimlpeTableIdentifier";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SimpleTableIdentifier];
-       if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                      reuseIdentifier:SimpleTableIdentifier] ;
-        
-    }
-    //NSLog(@"%d",[indexPath row]);
+       TradeItemTableViewCell *cell = (TradeItemTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"TradeItemTableViewCell"];
+ 
+   
+               //NSLog(@"%d",[indexPath row]);
     NSDictionary *tempDictionary= [[self.nsjson objectForKey:@"result"]objectAtIndex:indexPath.row];
     
-    cell.detailTextLabel.text = [tempDictionary objectForKey:@"crn"];
+    NSString* fontName = @"Optima-Italic";
+    NSString* boldFontName = @"Optima-ExtraBlack";
     
-    cell.textLabel.text = [tempDictionary objectForKey:@"course_number"];
+    UIColor* mainColor = [UIColor colorWithRed:50.0/255 green:102.0/255 blue:147.0/255 alpha:1.0f];
+    cell.exchangeLabel.textColor =  mainColor;
+    cell.exchangeLabel.font =  [UIFont fontWithName:fontName size:14.0f];
+    
+    cell.haveLabel.textColor =  mainColor;
+    cell.haveLabel.font =  [UIFont fontWithName:fontName size:14.0f];
 
+    if([[tempDictionary objectForKey:@"have"] isEqualToString:@""]){
+       cell.haveLabel.text =[NSString stringWithFormat:@"%@ have nothing",[tempDictionary objectForKey:@"username"]];
+    }else{
+        cell.haveLabel.text =[NSString stringWithFormat:@"%@ have %@",[tempDictionary objectForKey:@"username"],[tempDictionary objectForKey:@"have"]];
+        
+    }
+    if([[tempDictionary objectForKey:@"exchange" ] isEqualToString:@""]){
+        cell.exchangeLabel.text =[NSString stringWithFormat:@" to trade nothing"];
+    }else{
+       cell.exchangeLabel.text =[NSString stringWithFormat:@" to trade %@",[tempDictionary objectForKey:@"exchange"]];
+    }
+    NSString *photoURL1 = @"http://www.mingshengxu.com/promos/img/";
+    NSString *photoURL = [NSString stringWithFormat:@"%@%@_profile.jpg",photoURL1,[tempDictionary objectForKey:@"username"]];
+    
+    [cell.profileImageView setImageWithURL:[NSURL URLWithString:photoURL] ];
+    cell.accessoryType =   UITableViewCellAccessoryDisclosureIndicator;
     // Configure the cell...
     
     return cell;
 }
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return NO;
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -157,11 +226,18 @@
     return YES;
 }
 */
+- (IBAction)addTradeItem_Press:(UIBarButtonItem *)sender {
+    
+    [self performSegueWithIdentifier:@"TradeListToAddItem" sender:self];
+    
+}
 
 #pragma mark - Navigation
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(id)sender
 {
-    [self performSegueWithIdentifier:@"TradeListToTradeItemDetail" sender:self];
+
+
+     [self performSegueWithIdentifier:@"TradeListToTradeItemDetail" sender:self];
 }
 
 // In a story board-based application, you will often want to do a little preparation before navigation
@@ -171,15 +247,18 @@
     if([segue.identifier isEqualToString:@"TradeListToTradeItemDetail"])
     {
          TradeItemDetailTableViewController *transferViewController = segue.destinationViewController;
-        transferViewController.crn =[[[self.nsjson objectForKey:@"result"] objectAtIndex:[self.tableView indexPathForSelectedRow].row]objectForKey:@"crn"];
-        transferViewController.userPost =[[[self.nsjson objectForKey:@"result"] objectAtIndex:[self.tableView indexPathForSelectedRow].row]objectForKey:@"user"];
-        transferViewController.courseNum = [[[self.nsjson objectForKey:@"result"] objectAtIndex:[self.tableView indexPathForSelectedRow].row]objectForKey:@"course_number"];
-    }
+       transferViewController.tempDictionary =[[self.nsjson objectForKey:@"result"] objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        
+        }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"TradeListToAddItem"])
+    {
+        TradeItemDetailTableViewController *transferViewController = segue.destinationViewController;
+       
+    }
+
 }
-
-
 
 
 @end

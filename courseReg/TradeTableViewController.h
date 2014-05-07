@@ -15,5 +15,9 @@
 @property(strong,nonatomic)NSDictionary *nsjson;
 @property(strong,nonatomic)NSArray *array;
 
+@property(strong,nonatomic)NSDictionary* passInfo;
+
+
+- (IBAction)addTradeItem_Press:(id)sender;
 
 @end
